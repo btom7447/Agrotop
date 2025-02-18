@@ -1,0 +1,96 @@
+/* TABLET (SMALL) */
+@media screen and (min-width: 451px) and (max-width: 800px) {
+    
+    /* ROOT COLORS */
+    :root {
+        --p-black: #423E3EF2;
+        --s-black: #423E3E; 
+        --ash: #8D8D8D;
+        --white: #fff;
+        --p-gold: #E1841A;
+        --s-gold: #E1841A59;
+        --p-green: #154604;
+    }      
+
+    .navbar {
+        display: none;
+    }
+    .mobile-navbar {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--white);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    .navbar-header {
+        width: 100%;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    .navbar-header .nav-logo img {
+        width: 120px;
+        height: auto;
+        object-fit: cover;
+    }
+    .navbar-toggler {
+        background: none;
+        border: none;
+        color: var(--p-green);
+        font-size: 25px;
+    }
+    .navbar-menu {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+    }
+    .navbar-menu.open {
+        max-height: 900px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    .navbar-links {
+        padding: 20px;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .navbar-links li {
+        width: 100%;
+    }
+    .navbar-links li a {
+        width: 100%;
+        text-decoration: none;
+        color: var(--s-black-);
+        font-weight: 500;
+        font-family: 'Instrument Sans', sans-serif;
+    }
+    .header-buttons {
+        margin: 0px 20px;
+        margin-bottom: 20px;
+        justify-content: space-between;
+    }
+    .header-buttons .login {
+        background-color: var(--white);
+        border: solid 1px var(--p-gold);
+        color: var(--p-gold);
+    }
+    .header-buttons .login:hover {
+        background-color: var(--p-gold);
+        color: var(--white);
+    }
+    .header-buttons .sign-up {
+        background-color: var(--p-gold);
+        border: solid 1px var(--p-gold);
+        color: var(--white);
+    }
+    .header-buttons .sign-up:hover {
+        background-color: var(--white);
+        color: var(--p-gold);
+    }
+
+}
