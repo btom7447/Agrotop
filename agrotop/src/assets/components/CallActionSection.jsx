@@ -1,0 +1,22 @@
+import React from "react";
+import callActionPoster from '../images/call-action-poster-1.jpg';
+
+const CallActionSection = () => {
+    return (
+        <div className="call-action-section">
+            <div className="action-poster">
+                <h3>Do you want to sell or lease your Landed property?</h3>
+                <h3>What we do best is helping you manage your property</h3>
+                <h4>Give us a call +234 111 222 333 to get started </h4>
+            </div>
+            <div className="action-caption">
+                <h3>Are you looking to sell or lease your landed property? We can help.</h3>
+                <button type="button" className="call-action-button">
+                    Sell/Lease your Land
+                </button>
+            </div>
+        </div>
+    )
+};
+
+export default CallActionSection;

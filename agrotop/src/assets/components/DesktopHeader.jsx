@@ -23,7 +23,7 @@ const DesktopHeader = ({ logo }) => {
 
             <ul className="navbar-links">
                 <li><NavLink to="/" activeclassname="active">Home</NavLink></li>
-                <li><NavLink to="/listed-properties" activeclassname="active">Listed Properties</NavLink></li>
+                <li><NavLink to="/listings" activeclassname="active">Listings</NavLink></li>
                 <li><NavLink to="/about" activeclassname="active">About</NavLink></li>
                 <li><NavLink to="/contact" activeclassname="active">Contact</NavLink></li>
             </ul>

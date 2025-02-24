@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@ionic/react": "^8.4.3",
+    "@splidejs/react-splide": "^0.7.12",
+    "@splidejs/splide": "^4.1.4",
     "framer-motion": "^12.4.3",
     "ionicons": "^7.4.0",
     "react": "^19.0.0",

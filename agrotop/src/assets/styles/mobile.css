@@ -130,6 +130,133 @@
     .hero-section .hero-poster-two {
         display: none;
     }
+
+    /* HERO BUY & SELL SECTION */
+    .hero-buy-sell {
+        padding: 50px 20px;
+        gap: 30px;
+        grid-template-columns: 1fr;
+    }
+    .hero-buy-sell .hero-bs-poster {
+        position: relative;
+        padding-bottom: 30px;
+    }
+    .hero-buy-sell .hero-bs-poster .buy-sell-poster {
+        margin-left: 40px;
+        width: 75%;
+    }
+    .hero-buy-sell .vetted-seller-tag {
+        position: absolute;
+        top: 20px;
+        left: 0px;
+        padding: 10px;
+        padding-right: 20px;
+    }
+    .hero-buy-sell .vetted-seller-tag img {
+        width: 30px;
+        height: 30px;
+    }
+    .hero-buy-sell .best-deal-tag {
+        bottom: 00px;
+        left: 0%;
+        transform: unset;
+        width: 100%;
+        padding: 10px;
+        padding-top: 0px;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+    .hero-buy-sell .best-deal-tag > div {
+        padding-top: 10px;
+    }
+    .hero-buy-sell .best-deal-tag img {
+        width: 40px;
+        height: 40px;
+        margin: 0px;
+    }
+    .hero-buy-sell .buy-sell-caption {
+        gap: 30px;
+        padding: 30px 0px;
+    }
+    .hero-buy-sell .buy-sell-caption .buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        padding: 20px;
+    }
+    .hero-buy-sell .buttons button:first-child {
+        width: 100%;
+        padding: 15px;
+    }
+    .hero-buy-sell .buttons button:last-child {
+        width: 100%;
+        padding: 15px;
+    }
+    .hero-buy-sell .buy-sell-caption h3 {
+        width: 100%;
+    }
+    .hero-buy-sell .buy-sell-caption p {
+        width: 100%;
+    }
+    
+    /* EXPLORE PROPERTIES SECTION */
+    .explore-properties {
+        padding: 20px;
+    }
+    .explore-properties p {
+        font-size: 16px;
+    }
+    .explore-properties .divide {
+        width: 100px;
+    }
+    .explore-properties-catalog {
+        margin-top: 30px;
+        width: 100%;
+    }
+    
+    /* PROPERTIES CATALOG */
+    .properties-grid {
+        grid-template-columns: 1fr; 
+        margin-bottom: 30px;
+    }
+    .pagination {
+        display: flex;
+    }
+
+    /* HOW WE STAND OUT */
+    .stand-out-section {
+        padding: 50px 20px;
+    }
+    .stand-out-section .stand-out {
+        gap: 50px;
+    }
+
+    /* TESTIMONIAL SECTION */
+    .testimonial-section {
+        padding: 50px 20px;
+        padding-bottom: 100px;
+    }
+    .testimonial-section .testimonial-carousel {
+        margin-top: 30px;
+        max-width: 100%;
+    }
+
+    /* CALL TO ACTION SECTION */
+    .call-action-section .action-poster {
+        padding: 50px 20px;
+        width: 100%;
+        height: fit-content;
+    }
+    .call-action-section .action-caption {
+        width: 100%;
+        padding: 50px 20px;
+    }
+
+    
+    
     
     /* * {
         outline: red solid 1px;

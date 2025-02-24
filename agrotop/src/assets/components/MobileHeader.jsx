@@ -24,7 +24,7 @@ const MobileHeader = ({ logo }) => {
             <div className={`navbar-menu ${isOpen ? 'open' : ''}`}>
                 <ul className="navbar-links">
                     <li><NavLink to="/" activeclassname="active" onClick={() => setIsOpen(false)}>Home</NavLink></li>
-                    <li><NavLink to="/listed-properties" activeclassname="active" onClick={() => setIsOpen(false)}>Listed Properties</NavLink></li>
+                    <li><NavLink to="/listings" activeclassname="active" onClick={() => setIsOpen(false)}>Listings</NavLink></li>
                     <li><NavLink to="/about" activeclassname="active" onClick={() => setIsOpen(false)}>About</NavLink></li>
                     <li><NavLink to="/contact" activeclassname="active" onClick={() => setIsOpen(false)}>Contact</NavLink></li>
                 </ul>

@@ -20,7 +20,7 @@ const Footer = () => {
                 <div className="features-links">
                     <h6>Features</h6>
                     <ul>
-                        <li>Listed Properties</li>
+                        <li>Listing</li>
                         <li>Lease</li>
                         <li>Invest</li>
                         <li>About</li>

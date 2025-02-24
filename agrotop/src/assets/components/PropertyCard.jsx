@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { IonIcon } from "@ionic/react";
 import { heart, heartOutline } from "ionicons/icons";
 import sizeVector from '../images/size-vector.png';
+import locationVector from '../images/location-vector.png';
 
-const PropertyCard = ({ image, price, address, name, size, className }) => {
+const PropertyCard = ({ image, price, address, name, size, className, type }) => {
     // State to track if the property is saved
     const [isSaved, setIsSaved] = useState(false);
 
@@ -48,19 +49,26 @@ const PropertyCard = ({ image, price, address, name, size, className }) => {
 
     return (
         <div className={`${className} property-card`}>
-            <img src={image} alt={name} />
-            <div className="property-caption">
-                <h4>NGN {formatPrice(price)}</h4>
-                <h5>{name}</h5>
-                <h6>{address}</h6>
-                <hr />
-                <div className="size">
-                    <img src={sizeVector} alt="size icon" />
-                    <p>{size}</p>
-                </div>
+            <div className="property-card-poster">
+                <img src={image} alt={name} />  
                 <button type="button" className="save-button" onClick={handleSaveClick}>
                     <IonIcon icon={isSaved ? heart : heartOutline} className="save-icon" />
                 </button>
+                <div className={`${type} type-tag`}>
+                    <p>For  {type}</p>
+                </div>
+                <div className="size">
+                    <img src={sizeVector} alt="size icon" />
+                    <p>{size}</p>
+                    <h4>NGN {formatPrice(price)}</h4>
+                </div>
+            </div>
+            <div className="property-caption">
+                <h5>{name}</h5>
+                <div className="location">
+                    <img src={locationVector} alt="location placeholder icon" />
+                    <h6>{address}</h6>
+                </div>
             </div>
         </div>
     );

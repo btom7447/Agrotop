@@ -5,8 +5,8 @@ import Header from "./assets/components/Header";
 import Footer from "./assets/components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import ListedProperties from "./pages/ListedProperties";
 import Contact from "./pages/Contact";
+import Listings from "./pages/Listings";
 
 
 
@@ -20,7 +20,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path='/home' element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/listed-properties" element={<ListedProperties />} />
+            <Route path="/listings" element={<Listings />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
           <Footer />

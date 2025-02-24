@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Select from 'react-select';
 import { useNavigate } from 'react-router-dom';
+import stateAndCities from '../data/states-and-cities.json';
 
 const HeroFilter = () => {
     const [landType, setLandType] = useState(null);
@@ -10,16 +11,15 @@ const HeroFilter = () => {
 
     // Fixed options for Land Type and Location
     const landTypeOptions = [
-        { value: "residential", label: "Residential" },
-        { value: "commercial", label: "Commercial" },
-        { value: "agricultural", label: "Agricultural" },
+        { value: "lease", label: "Lease" },
+        { value: "sale", label: "Sale" },
     ];
 
-    const locationOptions = [
-        { value: "lagos", label: "Lagos" },
-        { value: "abuja", label: "Abuja" },
-        { value: "port-harcourt", label: "Port Harcourt" },
-    ];
+    const locationOptions = stateAndCities.map((state) => ({
+        value: state.name.toLowerCase().replace(/\s+/g, '-'), 
+        label: state.name, 
+    }));
+    ;
 
     // Handle form submission
     const handleSearch = (e) => {
