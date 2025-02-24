@@ -763,15 +763,12 @@ footer .bottom-footer li {
   background-color: var(--p-gold);
   color: var(--white);
 }
-/* * {
-  outline: red solid 1px;
-} */
 
 /* PROPERTIES CATALOG */
 .properties-grid {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); 
   gap: 40px 20px; 
   margin-bottom: 50px;
 }
