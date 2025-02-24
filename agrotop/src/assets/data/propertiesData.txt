@@ -1,0 +1,22 @@
+{
+    id: 1, 
+    name: "2 acres of farmland at Alagbado", 
+    address: "26 Oba Adebayo Estate, Lagelu", 
+    about: [
+        "lorem ipsum", 
+        "lorem ipsum", 
+        "lorem ipsum"
+    ]
+    image: [
+        "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid", 
+        "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid", 
+        "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid", 
+    ], 
+    price: 1600000, 
+    size: 700,
+    type: "residential land", 
+    market_status: "lease", 
+    featured: true,
+    listing_date: 24-02-2024, 
+    property_owner: "Rade Lance LLC",
+}
