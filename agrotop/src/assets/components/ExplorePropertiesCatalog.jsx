@@ -19,6 +19,7 @@ const ExplorePropertiesCatalog = ({ exploreProperties }) => {
                         name={property.name}
                         size={property.size}
                         type={property.type}
+                        id={property.id}
                     />
                 ))}
             </div>

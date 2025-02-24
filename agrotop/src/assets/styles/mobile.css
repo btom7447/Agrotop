@@ -226,6 +226,16 @@
         display: flex;
     }
 
+    /* FEATURED LISTINGS SECTION */
+    .featured-listings-carousel {
+        /* padding: 50px 20px; */
+        padding-bottom: 50px;
+    }
+    .featured-listings-carousel .splide__pagination {
+        bottom: -50px !important;
+        display: none;
+    }
+
     /* HOW WE STAND OUT */
     .stand-out-section {
         padding: 50px 20px;

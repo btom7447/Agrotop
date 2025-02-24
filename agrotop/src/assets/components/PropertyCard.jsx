@@ -4,58 +4,38 @@ import { heart, heartOutline } from "ionicons/icons";
 import sizeVector from '../images/size-vector.png';
 import locationVector from '../images/location-vector.png';
 
-const PropertyCard = ({ image, price, address, name, size, className, type }) => {
-    // State to track if the property is saved
+const PropertyCard = ({ id, image, price, address, name, size, className, type }) => {
     const [isSaved, setIsSaved] = useState(false);
 
-    // Function to format the price
-    const formatPrice = (price) => {
-        return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    };
+    const formatPrice = (price) => price.toLocaleString();
 
-    // Check if the property is already saved when the component mounts
     useEffect(() => {
         const savedProperties = JSON.parse(localStorage.getItem("savedProperties")) || [];
-        const isPropertySaved = savedProperties.some((property) => property.name === name);
-        setIsSaved(isPropertySaved);
-    }, [name]);
+        setIsSaved(savedProperties.some(property => property.id === id));
+    }, [id]);
 
-    // Function to handle the save button click
     const handleSaveClick = () => {
-        // Get the existing saved properties from localStorage
-        const savedProperties = JSON.parse(localStorage.getItem("savedProperties")) || [];
+        let savedProperties = JSON.parse(localStorage.getItem("savedProperties")) || [];
 
-        // Check if the property already exists in savedProperties
-        const propertyIndex = savedProperties.findIndex(
-            (property) => property.name === name
-        );
-
-        if (propertyIndex === -1) {
-            // Property does not exist, so add it
-            const property = { image, price, address, name, size };
-            savedProperties.push(property);
-            setIsSaved(true); // Update state to indicate the property is saved
+        if (isSaved) {
+            savedProperties = savedProperties.filter(property => property.id !== id);
         } else {
-            // Property exists, so remove it
-            savedProperties.splice(propertyIndex, 1);
-            setIsSaved(false); // Update state to indicate the property is unsaved
+            savedProperties.push({ id, image, price, address, name, size, type });
         }
 
-        // Save the updated list back to localStorage
         localStorage.setItem("savedProperties", JSON.stringify(savedProperties));
-        console.log(localStorage.getItem("savedProperties"));
-    
+        setIsSaved(!isSaved);
     };
 
     return (
         <div className={`${className} property-card`}>
             <div className="property-card-poster">
-                <img src={image} alt={name} />  
+                <img src={image} alt={name} />
                 <button type="button" className="save-button" onClick={handleSaveClick}>
                     <IonIcon icon={isSaved ? heart : heartOutline} className="save-icon" />
                 </button>
                 <div className={`${type} type-tag`}>
-                    <p>For  {type}</p>
+                    <p>For {type}</p>
                 </div>
                 <div className="size">
                     <img src={sizeVector} alt="size icon" />

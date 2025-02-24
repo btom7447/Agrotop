@@ -962,11 +962,41 @@ footer .bottom-footer li {
   color: #7A7A7A;
 }
 
+/* FEATURED LISTINGS SECTION */
+.featured-listings-carousel {
+  width: 100%;
+  padding-bottom: 70px;
+  margin-top: 50px;
+}
+.featured-listings-carousel .splide__pagination {
+  text-align: center;
+  bottom: -80px !important;
+}
+.featured-listings-carousel .splide__pagination__page {
+  width: 10px; 
+  height: 10px; 
+  border: solid 1px var(--gray);
+  background: var(--gray);
+  display: inline-block;
+  margin: 0 6px;
+  cursor: pointer; 
+  transition: background 0.3s, transform 0.3s;
+}
+.featured-listings-carousel .splide__pagination__page.is-active {
+  background: var(--p-gold); 
+  border: solid 1px var(--p-gold);
+  transform: scale(1.5); 
+}
+
+
+/* * {
+  outline: red solid 1px;
+} */
 
 /* HOW WE STAND OUT */
 .stand-out-section {
   padding: 50px;
-  background-color: var(--a-background);
+  background-color: var(--white);
 }
 .stand-out-section h3 {
   font-family: 'Instrument Sans', sans-serif;
