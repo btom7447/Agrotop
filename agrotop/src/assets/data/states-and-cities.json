@@ -21,6 +21,10 @@
     ]
   },
   {
+    "name": "Abuja",
+    "cities": ["Bwari", "Gwagwalada", "Kuje", "Kwali", "Municipal Area Council"]
+  },
+  {
     "name": "Adamawa",
     "cities": [
       "Fufure",
@@ -329,10 +333,6 @@
       "Udi",
       "Uzo Uwani"
     ]
-  },
-  {
-    "name": "FCT",
-    "cities": ["Bwari", "Gwagwalada", "Kuje", "Kwali", "Municipal Area Council"]
   },
   {
     "name": "Gombe",

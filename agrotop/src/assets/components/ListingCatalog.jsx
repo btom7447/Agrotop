@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import PropertyCard from "./PropertyCard";
+import { IonIcon } from '@ionic/react'; 
+import { chevronBack, chevronForward } from 'ionicons/icons'; 
 
-const ListingCatalog = ({ exploreProperties }) => {
+const ListingCatalog = ({ listingsData }) => {
     const [currentPage, setCurrentPage] = useState(1);
-    const propertiesPerPage = 6; // Number of properties to display per page
+    const propertiesPerPage = 16; // Number of properties to display per page
 
     // Calculate the total number of pages
-    const totalPages = Math.ceil(exploreProperties.length / propertiesPerPage);
+    const totalPages = Math.ceil(listingsData.length / propertiesPerPage);
 
     // Get the properties for the current page
     const indexOfLastProperty = currentPage * propertiesPerPage;
     const indexOfFirstProperty = indexOfLastProperty - propertiesPerPage;
-    const currentProperties = exploreProperties.slice(indexOfFirstProperty, indexOfLastProperty);
+    const currentProperties = listingsData.slice(indexOfFirstProperty, indexOfLastProperty);
 
     // Calculate the range of page numbers to display
     const getPageNumbers = () => {
@@ -45,18 +47,13 @@ const ListingCatalog = ({ exploreProperties }) => {
     };
 
     return (
-        <div className="explore-properties-catalog">
+        <div className="listing-catalog">
             {/* Grid of PropertyCards */}
             <div className="properties-grid">
                 {currentProperties.map((property, index) => (
                     <PropertyCard
-                        key={index}
-                        image={property.image}
-                        price={property.price}
-                        address={property.address}
-                        name={property.name}
-                        size={property.size}
-                        type={property.type}
+                        key={property.id}
+                        data={property}
                     />
                 ))}
             </div>
@@ -68,7 +65,7 @@ const ListingCatalog = ({ exploreProperties }) => {
                     onClick={handlePreviousPage}
                     disabled={currentPage === 1}
                 >
-                    PREV
+                    <IonIcon icon={chevronBack} />
                 </button>
 
                 {/* Display page numbers */}
@@ -87,7 +84,7 @@ const ListingCatalog = ({ exploreProperties }) => {
                     onClick={handleNextPage}
                     disabled={currentPage === totalPages}
                 >
-                    NEXT
+                    <IonIcon icon={chevronForward} />
                 </button>
             </div>
         </div>

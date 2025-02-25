@@ -23,16 +23,11 @@ const FeaturedListingsCarousel = ({ featuredProperties }) => {
                     },
                 }}
             >
-                {featuredProperties.map((property) => (
+                {featuredProperties.map((property, index) => (
                     <SplideSlide key={property.id}>
                         <PropertyCard
-                            id={property.id}
-                            image={property.image}
-                            price={property.price}
-                            address={property.address}
-                            name={property.name}
-                            size={property.size}
-                            type={property.type}
+                            key={property.id} // Now index is properly defined
+                            data={property}
                         />
                     </SplideSlide>
                 ))}

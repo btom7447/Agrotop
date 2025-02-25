@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Listings from "./pages/Listings";
 import Login from "./pages/Login";
+import PropertyDetail from "./pages/PropertyDetail";
 
 
 
@@ -24,6 +25,7 @@ const App = () => {
             <Route path="/listings" element={<Listings />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/property-details/:id" element={<PropertyDetail />} />
           </Routes>
           <Footer />
         </Router>

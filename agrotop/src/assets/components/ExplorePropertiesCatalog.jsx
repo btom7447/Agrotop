@@ -44,13 +44,8 @@ const ExplorePropertiesCatalog = ({ exploreProperties }) => {
                 {propertiesToShow.map((property, index) => (
                     <motion.div key={index} variants={itemVariants}>
                         <PropertyCard
-                            image={property.image}
-                            price={property.price}
-                            address={property.address}
-                            name={property.name}
-                            size={property.size}
-                            type={property.type}
-                            id={property.id}
+                            key={property.id}
+                            data={property}
                         />
                     </motion.div>
                 ))}
