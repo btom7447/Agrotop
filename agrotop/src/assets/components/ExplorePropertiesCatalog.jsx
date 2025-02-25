@@ -39,7 +39,7 @@ const ExplorePropertiesCatalog = ({ exploreProperties }) => {
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="show" // Triggers animation when in view
-                viewport={{ once: true, amount: 0.4 }} // Only runs once, triggers at 20% visibility
+                viewport={{ once: true, amount: 0.1 }} // Only runs once, triggers at 20% visibility
             >
                 {propertiesToShow.map((property, index) => (
                     <motion.div key={index} variants={itemVariants}>

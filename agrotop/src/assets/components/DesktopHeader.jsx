@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const DesktopHeader = ({ logo }) => {
     const [isSticky, setIsSticky] = useState(false);
@@ -29,8 +29,12 @@ const DesktopHeader = ({ logo }) => {
             </ul>
 
             <div className="header-buttons">
-                <button type="button" className="login">Log in</button>
-                <button type="button" className="sign-up">Sign up</button>
+                <Link to="/login">
+                    <button type="button" className="login">Log in</button>
+                </Link>
+                <Link to="">
+                    <button type="button" className="sign-up">Sign up</button>
+                </Link>
             </div>
         </nav>
     );

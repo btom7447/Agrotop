@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { IonIcon } from '@ionic/react'; 
-import { menu, close, person } from 'ionicons/icons'; 
+import { menu, close, } from 'ionicons/icons'; 
 
 const MobileHeader = ({ logo }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -30,8 +30,12 @@ const MobileHeader = ({ logo }) => {
                 </ul>
 
                 <div className="header-buttons">
-                    <button type="button" className="login">Log in</button>
-                    <button type="button" className="sign-up">Sign up</button>
+                    <Link to="/login" onClick={() => setIsOpen(false)}>
+                        <button type="button" className="login">Log in</button>
+                    </Link>
+                    <Link to="" onClick={() => setIsOpen(false)}>
+                        <button type="button" className="sign-up">Sign up</button>
+                    </Link>
                 </div>
             </div>
         </nav>

@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Listings from "./pages/Listings";
+import Login from "./pages/Login";
 
 
 
@@ -22,6 +23,7 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/listings" element={<Listings />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
           <Footer />
         </Router>
