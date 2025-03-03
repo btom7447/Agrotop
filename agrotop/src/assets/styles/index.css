@@ -1236,6 +1236,7 @@ footer .bottom-footer li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 30px;
 }
 .call-action-section .action-poster {
   width: 100%;
@@ -1452,16 +1453,328 @@ footer .bottom-footer li {
   gap: 10px;
   font-family: 'Instrument Sans', sans-serif;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 26.84px;
   letter-spacing: 0%;
   color: var(--p-gold);
   border: none;
   background-color: transparent;
   cursor: pointer;
+  margin-bottom: 20px;
 }
-.property-detail-page .details-header {
+.property-detail-page .property-caption {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.property-detail-page .property-title, 
+.property-detail-page .share-save {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.property-detail-page .property-title h3 {
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 36.6px;
+  letter-spacing: 0%;
+  color: var(--p-green);  
+}
+.property-detail-page .property-title h4 {
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 36.6px;
+  letter-spacing: 0%;
+  color: var(--p-gold);
+}
+.property-detail-page .share-save button {
+  padding: 5px 10px;
+  background-color: var(--white);
+  border-radius: 5px;
+  border: solid 1px var(--p-gold);
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23.18px;
+  letter-spacing: 0%;
+  color: var(--p-gold);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.property-detail-page .details-header p {
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19.52px;
+  letter-spacing: 0%;
+  color: var(--ash);
+}
 
+/* PROPERTY DETAIL THUMBNAIL */
+.property-detail-page .main-slide {
+  width: 100%;
+  position: relative;
+  border-radius: 10px;
+}
+.property-detail-page .thumbnail-slide {
+  padding: 10px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #00000059 !important; 
+  border-radius: 10px;
+}
+.property-detail-page .thumbnail-slide:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #00000059; 
+  display: none;
+}
+.property-detail-page .splide__track {
+  overflow: hidden;
+}
+.property-detail-page .splide__track--nav>.splide__list>.splide__slide.is-active {
+  border: 2px solid var(--p-gold) !important;
+}
+.property-detail-page .splide__slide {
+  border-radius: 10px !important;
+}
+.property-detail-page .property-details-tab {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 40px;
+  padding-bottom: 30px;
+  border-bottom: solid 1px var(--gray);
+}
+.property-detail-page .property-details-tab .prop-statistics {
+  padding: 30px;
+  background-color: #e1841a0a;
+  border: solid 1px var(--p-gold);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.property-detail-page .stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+}
+.property-detail-page .stat h6 {
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21.96px;
+  letter-spacing: 0%;
+  color: var(--s-black);
+}
+.property-detail-page .stat > div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.property-detail-page .about-land {
+  margin-top: 30px;
+
+}
+.property-detail-page .about-land h4 {
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30.5px;
+  letter-spacing: 0%;
+  color: var(--p-green);
+}
+.property-detail-page .about-land p {
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19.52px;
+  letter-spacing: 0%;
+  text-align: justify;
+  color: var(--p-black);
+}
+.property-detail-page .property-owner-detail {
+  margin-top: 30px;
+  width: 100%;
+  padding: 30px;
+  background-color: #e1841a0a;
+  border: solid 1px var(--p-gold);
+  border-radius: 10px;
+}
+.property-detail-page .property-owner-detail p {
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21.96px;
+  letter-spacing: 0%;
+  color: var(--ash);
+}
+.property-detail-page .property-owner-detail .property-owner {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+.property-detail-page .property-owner > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.property-detail-page .property-owner > div img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.property-detail-page .property-owner > div h6 {
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17.08px;
+  letter-spacing: 0%;
+  color: var(--p-green);
+  text-transform: capitalize;
+}
+.property-detail-page .property-owner .more-info {
+  padding: 5px 20px;
+  background-color: var(--s-gold);
+  border-radius: 5px;
+  border: solid 1px var(--p-gold);
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23.18px;
+  letter-spacing: 0%;
+  color: var(--p-gold);
+}
+.property-detail-page .property-owner .more-info:hover {
+  background-color: var(--white);
+  color: var(--p-gold);
+}
+
+/* REQUEST TOUR FORM */
+.request-tour-form {
+  width: 100%;
+  border-radius: 10px;
+  border: solid 1px var(--p-gold);
+  padding: 20px;
+  background-color: #e1841a0a;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.request-tour-form p {
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21.96px;
+  letter-spacing: 0%;
+  color: var(--s-black);
+}
+.request-tour-form h4 {
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30.5px;
+  letter-spacing: 0%;
+  color: var(--p-gold);
+}
+.request-tour-form .make-payment {
+  width: 100%;
+  padding: 5px 20px;
+  background-color: var(--p-gold);
+  border-radius: 5px;
+  border: solid 1px var(--p-gold);
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23.18px;
+  letter-spacing: 0%;
+  color: var(--white);
+  margin-top: 20px;
+}
+.request-tour-form h5 {
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 30.5px;
+  letter-spacing: 0%;
+  color: var(--p-black);
+}
+.request-tour-form .tour-type-buttons {
+  margin: 20px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.request-tour-form .tour-type-buttons button {
+  flex: 1;
+  padding: 10px;
+  background-color: var(--white);
+  border-radius: 5px;
+  border: solid 1px var(--p-gold);
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 23.18px;
+  letter-spacing: 0%;
+  color: var(--p-black);
+}
+.request-tour-form .tour-type-buttons .active {
+  background-color: var(--s-gold);
+  color: var(--p-gold);
+}
+.request-tour-form .date-input {
+  width: 100%;
+  padding: 10px;
+  border: solid 1px var(--p-gold);
+  border-radius: 5px;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 23.18px;
+  letter-spacing: 0%;
+  color: var(--p-black);
+}
+.request-tour-form .submit-btn {
+  padding: 10px;
+  background-color: var(--p-green);
+  border-radius: 5px;
+  border: solid 1px var(--p-green);
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 23.18px;
+  letter-spacing: 0%;
+  color: var(--white);
+}
+.request-tour-form .submit-btn:hover {
+  background-color: var(--white);
+  color: var(--p-green);
 }
 
 

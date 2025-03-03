@@ -17,6 +17,15 @@
         padding-top: 60px;
     }
 
+    /* BREADCRUMB SECTION */
+    .breadcrumb-section {
+        padding: 20px;
+    }
+    .breadcrumb-section h6 {
+        font-size: 18px;
+        text-align: center;
+    }
+
     .navbar {
         display: none;
     }
@@ -343,7 +352,42 @@
         font-size: 18px;
     }
     
+    /* PROPERTY DETAILS PAGE */
+    .property-detail-page {
+        padding: 20px;
+    }
+    .property-detail-page .property-title, 
+    .property-detail-page .share-save {
+        flex-wrap: wrap;
+    }
+    .property-detail-page .details-header p {
+        margin-top: 20px;
+    }
     
+    .property-detail-page .property-details-tab {
+        margin-top: 20px;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding-bottom: 20px;
+    }
+    .property-detail-page .property-details-tab .prop-statistics {
+        padding: 20px;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+    .property-detail-page .property-owner-detail {
+        margin-top: 20px;
+        padding: 20px;
+    }
+    .property-detail-page .property-owner-detail .property-owner {
+        margin-top: 10px;
+        flex-wrap: wrap;
+    }
+    
+    /* REQUEST TOUR FORM */
+    .request-tour-form {
+        gap: 30px;
+    }
     
     /* * {
         outline: red solid 1px;

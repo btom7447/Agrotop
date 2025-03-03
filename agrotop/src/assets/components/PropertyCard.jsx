@@ -11,19 +11,17 @@ const PropertyCard = ({ data }) => {
     // Check if the property is already saved when the component mounts
     useEffect(() => {
         const savedProperties = JSON.parse(localStorage.getItem("savedProperties")) || [];
-        setIsSaved(savedProperties.some(property => property.id === data.id)); // Use data.id
-    }, [data.id]); // Add data.id as a dependency
+        setIsSaved(savedProperties.some(property => property.id === data.id)); 
+    }, [data.id]); 
 
     // Handle save button click
     const handleSaveClick = () => {
         let savedProperties = JSON.parse(localStorage.getItem("savedProperties")) || [];
 
         if (isSaved) {
-            // Remove the property from saved properties
-            savedProperties = savedProperties.filter(property => property.id !== data.id); // Use data.id
+            savedProperties = savedProperties.filter(property => property.id !== data.id); 
         } else {
-            // Add the property to saved properties
-            savedProperties.push(data); // Push the entire data object
+            savedProperties.push(data); 
         }
 
         // Update localStorage and toggle the saved state
@@ -33,20 +31,16 @@ const PropertyCard = ({ data }) => {
 
     // Format price and size with commas
     const formatNumber = (value) => {
-        if (!value) return "N/A"; // Handle missing or invalid values
-    
-        // Ensure the value is a string before calling replace
+        if (!value) return "N/A"; 
         const valueStr = String(value); 
-    
-        // Convert to a number
         const number = parseFloat(valueStr.replace(/,/g, '')); 
     
-        return isNaN(number) ? "N/A" : number.toLocaleString(); // Format with commas
+        return isNaN(number) ? "N/A" : number.toLocaleString(); 
     };    
 
     // Construct the full image URL
     const getImageUrl = (imagePath) => {
-        const baseUrl = "https://api.drixel.ng/"; // Replace with your server's base URL
+        const baseUrl = "https://api.drixel.ng/"; 
         return `${baseUrl}${imagePath}`;
     };
 
@@ -69,13 +63,19 @@ const PropertyCard = ({ data }) => {
                 {/* Size and Price */}
                 <div className="size">
                     <img src={sizeVector} alt="size icon" />
-                    <p>{formatNumber(data.size)} sqft</p> {/* Format size */}
-                    <h4>NGN {formatNumber(data.price)}</h4> {/* Format price */}
+                    <p>{formatNumber(data.size)} sqft</p>
+                    <h4>NGN {formatNumber(data.price)}</h4> 
                 </div>
             </div>
 
             {/* Property Caption */}
-            <Link to={`/property-details/${data.id}`} className="property-card-link">
+            <Link 
+                to={{
+                    pathname: `/property-details/${data.id}`,
+                    state: { property: data }
+                }} 
+                className="property-card-link"
+            >                
                 <div className="property-caption">
                     <h5>{data.name || "Unnamed Property"}</h5> {/* Handle missing name */}
                     <div className="location">
