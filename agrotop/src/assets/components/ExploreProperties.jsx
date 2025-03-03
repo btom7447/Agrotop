@@ -1,162 +1,84 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ExplorePropertiesCatalog from "./ExplorePropertiesCatalog";
-
-const exploreProperties = [
-    {
-        id: 1,
-        name: "2 acres of farmland at Alagbado",
-        address: "26 Oba Adebayo Estate, Lagelu",
-        location: "abuja",
-        about: ["lorem ipsum", "lorem ipsum", "lorem ipsum"],
-        image: [
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-        ],
-        price: 1600000,
-        size: 700,
-        type: "residential land",
-        market_status: "sale",
-        featured: true,
-        property_owner: "Rade Lance LLC",
-    },
-    {
-        id: 2,
-        name: "2 acres of farmland at Alagbado",
-        address: "26 Oba Adebayo Estate, Lagelu",
-        location: "lagos",
-        about: ["lorem ipsum", "lorem ipsum", "lorem ipsum"],
-        image: [
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-        ],
-        price: 1600000,
-        size: 700,
-        type: "residential land",
-        market_status: "sale",
-        featured: true,
-        property_owner: "Rade Lance LLC",
-    },
-    {
-        id: 3,
-        name: "2 acres of farmland at Alagbado",
-        address: "26 Oba Adebayo Estate, Lagelu",
-        location: "akwa ibom",
-        about: ["lorem ipsum", "lorem ipsum", "lorem ipsum"],
-        image: [
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-        ],
-        price: 1600000,
-        size: 700,
-        type: "residential land",
-        market_status: "lease",
-        featured: true,
-        property_owner: "Rade Lance LLC",
-    },
-    {
-        id: 4,
-        name: "2 acres of farmland at Alagbado",
-        address: "26 Oba Adebayo Estate, Lagelu",
-        location: "oyo",
-        about: ["lorem ipsum", "lorem ipsum", "lorem ipsum"],
-        image: [
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-        ],
-        price: 1600000,
-        size: 700,
-        type: "residential land",
-        market_status: "sale",
-        featured: true,
-        property_owner: "Rade Lance LLC",
-    },
-    {
-        id: 5,
-        name: "2 acres of farmland at Alagbado",
-        address: "26 Oba Adebayo Estate, Lagelu",
-        location: "akwa ibom",
-        about: ["lorem ipsum", "lorem ipsum", "lorem ipsum"],
-        image: [
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-        ],
-        price: 1600000,
-        size: 700,
-        type: "residential land",
-        market_status: "sale",
-        featured: true,
-        property_owner: "Rade Lance LLC",
-    },
-    {
-        id: 6,
-        name: "2 acres of farmland at Alagbado",
-        address: "26 Oba Adebayo Estate, Lagelu",
-        location: "abuja",
-        about: ["lorem ipsum", "lorem ipsum", "lorem ipsum"],
-        image: [
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-        ],
-        price: 1600000,
-        size: 700,
-        type: "residential land",
-        market_status: "lease",
-        featured: true,
-        property_owner: "Rade Lance LLC",
-    },
-    {
-        id: 7,
-        name: "2 acres of farmland at Alagbado",
-        address: "26 Oba Adebayo Estate, Lagelu",
-        location: "oyo",
-        about: ["lorem ipsum", "lorem ipsum", "lorem ipsum"],
-        image: [
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-        ],
-        price: 1600000,
-        size: 700,
-        type: "residential land",
-        market_status: "sale",
-        featured: true,
-        property_owner: "Rade Lance LLC",
-    },
-    {
-        id: 8,
-        name: "2 acres of farmland at Alagbado",
-        address: "26 Oba Adebayo Estate, Lagelu",
-        location: "lagos",
-        about: ["lorem ipsum", "lorem ipsum", "lorem ipsum"],
-        image: [
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-            "https://img.freepik.com/free-photo/view-african-nature-scenery-with-vegetation_23-2148851595.jpg?ga=GA1.1.631888845.1739954325&semt=ais_hybrid",
-        ],
-        price: 1600000,
-        size: 700,
-        type: "residential land",
-        market_status: "lease",
-        featured: true,
-        property_owner: "Rade Lance LLC",
-    },
-];
+import { BounceLoader } from "react-spinners"; // Import BounceLoader
 
 const ExploreProperties = () => {
+    // State for fetched listings data
+    const [listingsData, setListingsData] = useState([]); // Initialize as an empty array
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    // Fetch data from the API
+    useEffect(() => {
+        const fetchListings = async () => {
+            try {
+                const response = await fetch("https://api.drixel.ng/api/listing");
+                if (!response.ok) {
+                    throw new Error("Failed to fetch listings");
+                }
+                const result = await response.json();
+
+                // Extract the `data` array from the API response
+                const { data } = result;
+                if (!Array.isArray(data)) {
+                    throw new Error("API response is not an array");
+                }
+
+                // Map the API's `state` key to `location` in the listings data
+                const mappedData = data.map((property) => ({
+                    ...property,
+                    location: property.state, // Map `state` to `location`
+                }));
+
+                setListingsData(mappedData); // Set the mapped data
+                setLoading(false);
+            } catch (error) {
+                setError(error.message);
+                setLoading(false);
+            }
+        };
+
+        fetchListings();
+    }, []);
+
+    // Function to get 8 random properties from the listings data
+    const getRandomProperties = (properties, count) => {
+        const shuffled = properties.sort(() => 0.5 - Math.random()); // Shuffle the array
+        return shuffled.slice(0, count); // Return the first `count` elements
+    };
+
+    // Get 8 random properties
+    const randomProperties = getRandomProperties(listingsData, 8);
+
+    // Display error state
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
+
     return (
         <section className="explore-properties">
             <h3>Explore Our Properties</h3>
             <p>Look through our catalogue to find 100% verified and trusted properties to bank on</p>
             <hr className="divide" />
-            <ExplorePropertiesCatalog exploreProperties={exploreProperties} />
+
+            {/* Show loader if loading */}
+            {loading ? (
+                <div
+                    className="loading-container"
+                    style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        height: "50vh",
+                    }}
+                >
+                    <BounceLoader size={80} color="#E1841A59" /> {/* BounceLoader for loading state */}
+                </div>
+            ) : (
+                <ExplorePropertiesCatalog exploreProperties={randomProperties} />
+            )}
         </section>
-    )
+    );
 };
 
 export default ExploreProperties;

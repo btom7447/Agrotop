@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { IonIcon } from "@ionic/react";
 import { eyeOffOutline, eyeOutline } from "ionicons/icons";
 import loginPoster from "../assets/images/login-poster.png";
@@ -10,7 +11,7 @@ const Login = () => {
         <section className="login-page">
             <div className="login-form-container">
                 <h3>Welcome Back,</h3>
-                <h4>Sign In Here</h4>
+                <h4>Login Here</h4>
                 <p>Securely Login to your Account</p>
                 <form className="login-form">
                     {/* Username Input */}
@@ -39,11 +40,15 @@ const Login = () => {
                         <label className="remember-me">
                             <input type="checkbox" /> Remember Me
                         </label>
-                        <a href="#" className="forgot-password">Forgot Password?</a>
+                        <Link to="/reset-password" className="forgot-password">Forgot Password?</Link>
                     </div>
 
                     {/* Login Button */}
                     <button type="submit" className="login-btn">Login</button>
+                    <div className="login-links">
+                        <p>Don't have an account? Sign Up</p>
+                        <Link to="/signup">Here</Link>
+                    </div>
                 </form>
             </div>
 

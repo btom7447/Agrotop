@@ -5,11 +5,13 @@
         --p-black: #423E3EF2;
         --s-black: #423E3E; 
         --ash: #8D8D8D;
+        --gray: #D9D9D9;
+        --a-background: #F7F7FD;
         --white: #fff;
         --p-gold: #E1841A;
         --s-gold: #E1841A59;
         --p-green: #154604;
-    }      
+    }    
 
     #root {
         padding-top: 60px;
@@ -118,34 +120,34 @@
 
     /* LOGIN PAGE */
     .login-page {
-        flex-direction: column-reverse;
-        gap: 30px;
-        overflow: scroll;
-        padding: 50px 0px;
+        padding-top: 0px;
+        height: fit-content !important;
+        display: grid;
+        grid-template-columns: 1fr;
+        overflow-y: scroll;
     }
     .login-page .login-form-container {
-        width: 100%;
-        max-width: 100%;
+        order: 2;
         padding: 20px;
-        margin-left: 0px;
-        background: white;
+        padding-left: 20px;
+        background-color: var(--white);
     }
     
     /* LOGIN POSTER */
     .login-poster {
+        order: 1;
         width: 100%;
-        height: 500px;
+        height: 400px;
+        background-color: var(--white);
         position: relative;
-        height: 100%;
-        overflow: scroll;
-        /* overflow: hidden; */
+        overflow-y: hidden;
     }
     .login-poster .login-poster-banner {
-        position: unset;
-        right: unset;
-        top: unset;
-        width: 50%;
-        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 60%;
+        height: 100dvh;
         background-color: #FFEFD1;
     }
     .login-poster img {
@@ -159,9 +161,7 @@
         border-radius: 10px;
         z-index: 5;
     }
-    * {
-        outline: red solid 1px;
-    }
+      
 
     /* HOME PAGE */
     .hero-section {
@@ -215,9 +215,9 @@
     }
     .hero-buy-sell .best-deal-tag {
         bottom: 00px;
-        left: 26%;
+        left: 45%;
         transform: unset;
-        width: 100%;
+        width: 250px;
         padding: 10px;
         padding-top: 0px;
         flex-direction: row;

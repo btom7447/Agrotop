@@ -9,6 +9,9 @@ import Contact from "./pages/Contact";
 import Listings from "./pages/Listings";
 import Login from "./pages/Login";
 import PropertyDetail from "./pages/PropertyDetail";
+import ScrollToTop from "./assets/components/ScrollToTop";
+import Signin from "./pages/Signup";
+import ResetPassword from "./pages/ResetPassword";
 
 
 
@@ -17,6 +20,7 @@ const App = () => {
     <>
       <IonApp>
         <Router>
+          <ScrollToTop />
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -25,6 +29,8 @@ const App = () => {
             <Route path="/listings" element={<Listings />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signin />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/property-details/:id" element={<PropertyDetail />} />
           </Routes>
           <Footer />

@@ -18,7 +18,8 @@ const FeaturedListingsCarousel = ({ featuredProperties }) => {
                     arrows: false,
                     breakpoints: {
                         1024: { perPage: 3 }, // Medium screens: 3 per slide
-                        768: { perPage: 2 }, // Tablets: 2 per slide
+                        800: { perPage: 2 }, // Tablets: 2 per slide
+                        659: { perPage: 1 },
                         480: { perPage: 1 }, // Mobile: 1 per slide
                     },
                 }}

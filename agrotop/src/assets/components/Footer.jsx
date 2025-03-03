@@ -5,6 +5,7 @@ import twitterIcon from '../images/twitter-icon.png';
 import facebookIcon from '../images/facebook-icon.png';
 import mastercardIcon from '../images/mastercard-icon.png';
 import visaIcon from '../images/visa-icon.png';
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -20,11 +21,23 @@ const Footer = () => {
                 <div className="features-links">
                     <h6>Features</h6>
                     <ul>
-                        <li>Listing</li>
+                        <li>
+                            <NavLink to="/listings">
+                                Listings
+                            </NavLink>
+                        </li>
                         <li>Lease</li>
                         <li>Invest</li>
-                        <li>About</li>
-                        <li>Contact</li>
+                        <li>
+                            <NavLink to="/about">
+                                About
+                            </NavLink>  
+                        </li>
+                        <li>
+                            <NavLink to="/contact">
+                                Contact
+                            </NavLink>
+                        </li>
                     </ul>
                 </div>
                 <div className="follow-accept">
@@ -42,8 +55,8 @@ const Footer = () => {
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                                    <img src={facebookIcon} alt="Facebook icon" />
+                                <a href="https://www.facebook.com" target="_blank" rel="noopener no  referrer">
+                                    <img src={facebookIcon} alt="Facebook icon" style={{ width: '30px'}} />
                                 </a>
                             </li>
                         </ul>

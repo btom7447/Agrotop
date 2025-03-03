@@ -21,10 +21,18 @@ const ListingsFilter = ({ filters, onFilterChange }) => {
     // Handle changes for price range input
     const handlePriceChange = (e) => {
         const { value } = e.target;
+        // Remove commas for internal storage
+        const numericValue = value.replace(/,/g, '');
         setTempFilters({
             ...tempFilters,
-            maxPrice: value,
+            maxPrice: numericValue,
         });
+    };
+
+    // Format the price with commas for display
+    const formatPriceForDisplay = (price) => {
+        if (!price) return "";
+        return parseFloat(price).toLocaleString();
     };
 
     // Handle search button click
@@ -55,7 +63,7 @@ const ListingsFilter = ({ filters, onFilterChange }) => {
             <Select
                 classNamePrefix="custom-select"
                 name="market_status"
-                value={marketStatusOptions.find(option => option.value === tempFilters.market_status)}
+                value={marketStatusOptions.find(option => option.value === tempFilters.market_status.toLowerCase())}
                 onChange={handleSelectChange}
                 options={marketStatusOptions}
                 placeholder="Select Market Status"
@@ -75,12 +83,11 @@ const ListingsFilter = ({ filters, onFilterChange }) => {
 
             {/* Price Range Input */}
             <input
-                type="number"
+                type="text"
                 name="maxPrice"
                 placeholder="Max Price"
-                value={tempFilters.maxPrice}
+                value={formatPriceForDisplay(tempFilters.maxPrice)}
                 onChange={handlePriceChange}
-                min="0"
             />
 
             {/* Search Button */}

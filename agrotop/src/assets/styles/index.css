@@ -254,10 +254,14 @@ footer .top-footer .t-f-one h6 {
   text-align: justify;
   color: var(--s-black);
 }
+footer .features-links li a:hover,
 footer .features-links li:hover {
   color: var(--p-gold);
   cursor: pointer;
   font-weight: 500;
+}
+footer .features-links a {
+  text-decoration: none;
 }
 footer .follow-accept ul {
   display: flex;
@@ -300,24 +304,17 @@ footer .bottom-footer li {
 
 /* LOGIN PAGE */
 .login-page {
-  z-index: 2000;
-  position: fixed;
-  width: 100vw;
-  height: 100dvh;
-  left: 0;
-  top: 0;
-  display: flex;
-  gap: 30px;
-  align-items: center;
-  justify-content: center;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   background-color: var(--white);
+  /* overflow-y: scroll; */
 }
 .login-page .login-form-container {
-  width: 30%;
-  max-width: 400px;
-  padding: 20px;
-  margin-left: 150px;
-  background: white;
+  padding: 50px;
+  padding-left: 100px;
+  background-color: var(--white);
+  overflow-y: scroll;
 }
 .login-page .login-form-container h3 {
   font-family: 'Instrument Sans', sans-serif;
@@ -358,7 +355,7 @@ footer .bottom-footer li {
 }
 .login-page .input-group input {
   width: 100%;
-  padding: 10px 20px;
+  padding: 8px 20px;
   border: 1px solid var(--gray);
   color: var(--p-black);
   border-radius: 5px;
@@ -412,33 +409,64 @@ footer .bottom-footer li {
   letter-spacing: 0%;  
   color: var(--s-black);
 }
-.login-page .login-btn {
+.login-page button {
   width: 100%;
   padding: 10px 20px;
-  background-color: var(--p-gold);
-  color: var(--white);
   font-family: 'Instrument Sans', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 31.3px;
-  letter-spacing: 0%;  
-  border: none;
+  letter-spacing: 0%; 
+  margin-bottom: 20px;
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s color ease-in-out;
 }
+.login-page .login-btn {
+  margin-top: 20px;
+  background-color: var(--p-gold);
+  color: var(--white);
+  border: solid 1px var(--p-gold);
+}
 .login-page .login-btn:hover {
+  background-color: var(--white);
+  color: var(--p-gold);
+}
+.login-page .cancel-btn {
+  border: solid 1px var(--p-gold);
+  background-color: var(--white);
+  color: var(--p-gold);
+}
+.login-page .cancel-btn:hover {
   background-color: var(--s-gold);
+  color: var(--white);
+}
+.login-page .login-links {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0%;
+  color: var(--s-black);
+}
+.login-page .login-links p {
+  margin: 0px 10px;
+}
+.login-page .login-links a {
+  color: var(--p-gold);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 /* LOGIN POSTER */
 .login-poster {
-  width: 60%;
-  /* max-width: 600px; */
+  background-color: var(--white);
   position: relative;
-  height: 100%;
-  justify-self: end;
-  /* overflow: hidden; */
 }
 .login-poster .login-poster-banner {
   position: absolute;
@@ -501,6 +529,10 @@ footer .bottom-footer li {
 #root {
   padding-top: 85px;
 }
+.page {
+  background-color: var(--a-background);
+}
+
 
 /* HOME PAGE */
 .hero-section {
@@ -935,7 +967,7 @@ footer .bottom-footer li {
 }
 
 /* PROPERTIES CATALOG */
-.properties-grid {
+.explore-properties .properties-grid {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); 
@@ -944,6 +976,7 @@ footer .bottom-footer li {
   gap: 40px 20px; 
   margin-bottom: 50px;
 }
+
 
 /* PROPERTY CARD */
 .property-card {
@@ -1277,16 +1310,6 @@ footer .bottom-footer li {
   background-color: var(--a-background);
 }
 
-
-/* LISTINGS PAGE CATAGLOG */
-.listing-catalog {
-  padding: 50px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 /* LISTINGS PAGE FILTER */
 .listings-filter {
   width: 100%;
@@ -1327,12 +1350,23 @@ footer .bottom-footer li {
   background-color: var(--white);
   color: var(--p-gold);
 }
+
+/* LISTINGS PAGE CATAGLOG */
+.listing-catalog {
+  padding: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 /* LISTINGS  CATALOG GRID */
 .properties-grid {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); 
   gap: 40px 20px; 
+  justify-items: stretch;
   margin-bottom: 50px;
 }
 .pagination {
@@ -1398,6 +1432,36 @@ footer .bottom-footer li {
 }
 .pagination button:hover:not(:disabled) {
   color: var(--ash);
+}
+
+/* PROPERTY DETAILS PAGE */
+.property-detail-page {
+  padding: 50px;
+
+  background-color: var(--a-background);
+}
+.property-detail-page .details-header {
+  width: 100%;
+  margin-bottom: 30px;
+}
+.back-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26.84px;
+  letter-spacing: 0%;
+  color: var(--p-gold);
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.property-detail-page .details-header {
+
 }
 
 

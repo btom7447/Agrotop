@@ -22,8 +22,8 @@ const DesktopHeader = ({ logo }) => {
             </div>
 
             <ul className="navbar-links">
-                <li><NavLink to="/" activeclassname="active">Home</NavLink></li>
-                <li><NavLink to="/listings" activeclassname="active">Listings</NavLink></li>
+                <li><NavLink to="/" end activeclassname="active">Home</NavLink></li>
+                <li><NavLink to="/listings" end activeclassname="active">Listings</NavLink></li>
                 <li><NavLink to="/about" activeclassname="active">About</NavLink></li>
                 <li><NavLink to="/contact" activeclassname="active">Contact</NavLink></li>
             </ul>
@@ -32,7 +32,7 @@ const DesktopHeader = ({ logo }) => {
                 <Link to="/login">
                     <button type="button" className="login">Log in</button>
                 </Link>
-                <Link to="">
+                <Link to="/signup">
                     <button type="button" className="sign-up">Sign up</button>
                 </Link>
             </div>

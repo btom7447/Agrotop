@@ -33,7 +33,7 @@ const MobileHeader = ({ logo }) => {
                     <Link to="/login" onClick={() => setIsOpen(false)}>
                         <button type="button" className="login">Log in</button>
                     </Link>
-                    <Link to="" onClick={() => setIsOpen(false)}>
+                    <Link to="/signup" onClick={() => setIsOpen(false)}>
                         <button type="button" className="sign-up">Sign up</button>
                     </Link>
                 </div>

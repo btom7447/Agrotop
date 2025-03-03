@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"; // Import useParams
+import { useParams, useNavigate } from "react-router-dom"; 
+import { Link } from "react-router-dom";
+import BreadCrumb from "../assets/components/BreadCrumb";
+import { IonIcon } from "@ionic/react";
+import { chevronBack } from "ionicons/icons";
 
 const PropertyDetail = () => {
     const { id } = useParams(); // Get the id from the URL parameter
     const [property, setProperty] = useState(null);
+    const navigate = useNavigate();
 
     // Fetch property details based on the id
     useEffect(() => {
@@ -169,19 +174,37 @@ const PropertyDetail = () => {
     }
 
     return (
-        <div className="property-detail-page">
-            <h1>{property.name}</h1>
-            <p>{property.address}</p>
-            <p>{property.location}</p>
-            <p>Price: NGN {property.price.toLocaleString()}</p>
-            <p>Size: {property.size} sqft</p>
-            <p>Type: {property.type}</p>
-            <p>Market Status: {property.market_status}</p>
-            <p>Owner: {property.property_owner}</p>
-            <div className="property-images">
-                {property.image.map((img, index) => (
-                    <img key={index} src={img} alt={`Property ${index + 1}`} />
-                ))}
+        <div className="page">
+            <BreadCrumb
+                title="Listings"
+                subTitle={property.name}
+            />
+            <div className="property-detail-page">
+                <div className="details-header">
+                    <button onClick={() => navigate(-1)} className="back-button">
+                        <IonIcon icon={chevronBack} />
+                        Back
+                    </button>
+                    <div className="property-caption">
+                        <div className="property-title">
+                            <h3>{property.name}</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <h1>{property.name}</h1>
+                <p>{property.address}</p>
+                <p>{property.location}</p>
+                <p>Price: NGN {property.price.toLocaleString()}</p>
+                <p>Size: {property.size} sqft</p>
+                <p>Type: {property.type}</p>
+                <p>Market Status: {property.market_status}</p>
+                <p>Owner: {property.property_owner}</p>
+                <div className="property-images">
+                    {property.image.map((img, index) => (
+                        <img key={index} src={img} alt={`Property ${index + 1}`} />
+                    ))}
+                </div>
             </div>
         </div>
     );
