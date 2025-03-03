@@ -4,22 +4,20 @@ import BreadCrumb from "../assets/components/BreadCrumb";
 import { IonIcon } from "@ionic/react";
 import { chevronBack, heart, heartOutline, shareSocial } from "ionicons/icons";
 import PropertyThumbnail from "../assets/components/PropertyThumbnail";
-import statVector from "../assets/images/stat-vector.png"
+import statVector from "../assets/images/stat-vector.png";
 import RequestTourForm from "../assets/components/RequestTourForm";
 import CallActionSection from "../assets/components/CallActionSection";
+import { BounceLoader } from "react-spinners"; // For loading state
 
 const PropertyDetail = () => {
     const { id } = useParams(); // Get the property ID from the URL
     const navigate = useNavigate();
     const location = useLocation();
-    const passedProperty = location.state?.property;
+    const passedProperty = location.state?.property; // Get the passed property from state
     const [property, setProperty] = useState(passedProperty || null);
     const [loading, setLoading] = useState(!passedProperty); // Add a loading state
     const [error, setError] = useState(null); // Add an error state
     const [isSaved, setIsSaved] = useState(false); // Track if the property is saved
-
-    console.log("id", id);
-    console.log("passed data", passedProperty);
 
     // Initialize isSaved state based on localStorage
     useEffect(() => {
@@ -56,48 +54,67 @@ const PropertyDetail = () => {
         return isNaN(number) ? "N/A" : number.toLocaleString();
     };
 
+    // Format Date to be readable
+    const formatListingDate = (dateString) => {
+        const date = new Date(dateString);
+    
+        // Get the day, month, and year
+        const day = date.getDate();
+        const month = date.toLocaleString('default', { month: 'long' }); // Full month name
+        const year = date.getFullYear();
+    
+        // Add the ordinal suffix to the day
+        const ordinalSuffix = getOrdinalSuffix(day);
+    
+        return `${day}${ordinalSuffix} ${month}, ${year}`;
+    };
+
+    // Helper function to get the ordinal suffix (e.g., st, nd, rd, th)
+    const getOrdinalSuffix = (day) => {
+        if (day > 3 && day < 21) return 'th'; // 11th, 12th, 13th, etc.
+        switch (day % 10) {
+            case 1:
+                return 'st';
+            case 2:
+                return 'nd';
+            case 3:
+                return 'rd';
+            default:
+                return 'th';
+        }
+    };
+
     // Fetch property details based on the id
     useEffect(() => {
         const fetchProperty = async () => {
             try {
-                // Replace this with your actual data fetching logic
-                const properties = [
-                    {
-                        id: 21,
-                        name: "2 acres of farmland at Alagbado",
-                        address: "26 Oba Adebayo Estate, Lagelu",
-                        location: "abuja",
-                        about: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                        image: [
-                            "https://img.freepik.com/free-photo/village-view-from_1385-478.jpg?uid=R107376497&ga=GA1.1.136804308.1741017342&semt=ais_hybrid",
-                            "https://img.freepik.com/free-photo/city-sunset_1127-4033.jpg?uid=R107376497&ga=GA1.1.136804308.1741017342&semt=ais_hybrid",
-                            "https://img.freepik.com/free-photo/aerial-view-beautiful-village-surrounded-by-nature_1268-15591.jpg?uid=R107376497&ga=GA1.1.136804308.1741017342&semt=ais_hybrid",
-                            "https://img.freepik.com/free-photo/hotel_1127-4035.jpg?uid=R107376497&ga=GA1.1.136804308.1741017342&semt=ais_hybrid"
-                        ],
-                        price: "1600000",
-                        size: 700,
-                        type: "residential land",
-                        market_status: "sale",
-                        featured: true,
-                        property_owner: "Rade Lance LLC",
-                        listing_date: "2022-04-14"
-                    },
-                ];
-
-                const selectedProperty = properties.find((property) => property.id === parseInt(id));
-
-                if (selectedProperty) {
-                    setProperty(selectedProperty);
-                } else {
-                    setError("Property not found"); // Set error if property is not found
+                // Fetch property details from the API
+                const response = await fetch(`https://api.drixel.ng/api/listing/${id}`);
+                if (!response.ok) {
+                    throw new Error("Failed to fetch property details");
                 }
+                const result = await response.json();
+
+                // Check if the response contains the expected data
+                if (!result.data) {
+                    throw new Error("Invalid property data");
+                }
+
+                // Map the API's `state` key to `location` in the property data
+                const mappedProperty = {
+                    ...result.data,
+                    location: result.data.state, // Map `state` to `location`
+                };
+
+                setProperty(mappedProperty); // Set the fetched property data
             } catch (err) {
-                setError("Failed to fetch property details"); // Handle any other errors
+                setError(err.message); // Set error if something goes wrong
             } finally {
                 setLoading(false); // Set loading to false after fetching
             }
         };
 
+        // Fetch property only if it wasn't passed via state
         if (!passedProperty) {
             fetchProperty();
         }
@@ -106,8 +123,16 @@ const PropertyDetail = () => {
     // Loading state
     if (loading) {
         return (
-            <div className="loading-container">
-                <p>Loading...</p>
+            <div
+                className="loading-container"
+                style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "50vh",
+                }}
+            >
+                <BounceLoader size={80} color="#E1841A59" /> {/* BounceLoader for loading state */}
             </div>
         );
     }
@@ -166,7 +191,7 @@ const PropertyDetail = () => {
                             <div className="stat">
                                 <h6>Type</h6>
                                 <div>
-                                    <p style={{ textTransform: 'capitalize' }}>{property.type}</p>
+                                    <p style={{ textTransform: "capitalize" }}>{property.type}</p>
                                 </div>
                             </div>
                             <div className="stat">
@@ -180,14 +205,14 @@ const PropertyDetail = () => {
                                 <h6>Market Status</h6>
                                 <div>
                                     <img src={statVector} alt="size vector icon" />
-                                    <p style={{ textTransform: 'capitalize' }}>For {property.market_status}</p>
+                                    <p style={{ textTransform: "capitalize" }}>For {property.market_status}</p>
                                 </div>
                             </div>
                             <div className="stat">
                                 <h6>Listing Date</h6>
                                 <div>
                                     <img src={statVector} alt="size vector icon" />
-                                    <p>{property.listing_date}</p>
+                                    <p>{formatListingDate(property.listing_date)}</p>
                                 </div>
                             </div>
                         </div>

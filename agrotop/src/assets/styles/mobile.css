@@ -372,8 +372,9 @@
     }
     .property-detail-page .property-details-tab .prop-statistics {
         padding: 20px;
-        flex-wrap: wrap;
         gap: 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
     .property-detail-page .property-owner-detail {
         margin-top: 20px;
