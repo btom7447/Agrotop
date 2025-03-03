@@ -12,6 +12,8 @@ import PropertyDetail from "./pages/PropertyDetail";
 import ScrollToTop from "./assets/components/ScrollToTop";
 import Signin from "./pages/Signup";
 import ResetPassword from "./pages/ResetPassword";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 
@@ -34,8 +36,20 @@ const App = () => {
             <Route path="/property-details/:id" element={<PropertyDetail />} />
           </Routes>
           <Footer />
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
         </Router>
       </IonApp>
+
     </>
   )
 };
