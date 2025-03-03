@@ -328,6 +328,20 @@
         padding: 50px 20px;
     }
 
+    /* PROPERTY CARD */
+    .property-card .size p {
+        font-size: 14px;
+    }
+    .property-card .size h4 {
+        font-size: 16px;
+    }
+    
+    .property-card .property-caption {
+        margin-top: 20px;
+    }
+    .property-card .property-caption h5 {
+        font-size: 18px;
+    }
     
     
     

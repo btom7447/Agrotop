@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import loginPoster from "../assets/images/login-poster.png";
+import loginPoster from "../assets/images/login-poster.jpg";
 
 const ResetPassword = () => {
     const [email, setEmail] = useState(null);

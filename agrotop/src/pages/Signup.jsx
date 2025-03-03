@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { IonIcon } from "@ionic/react";
 import { eyeOffOutline, eyeOutline } from "ionicons/icons";
-import loginPoster from "../assets/images/login-poster.png";
+import loginPoster from "../assets/images/login-poster.jpg";
 
 const Signup = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
