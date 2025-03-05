@@ -1,11 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-import placeholderIcon from require("../images/placeholder-icon.png");
-
-const buySellPoster = require("../images/buy-sell-poster.png");
-const vettedIcon = require("../images/vetted-icon.png");
-
+import buySellPoster from "../images/buy-sell-poster.png";
+import vettedIcon from "../images/vetted-icon.png";
+import placeholderIcon from "../images/placeholder-icon.png";
 
 const HeroBuySell = () => {
     return (

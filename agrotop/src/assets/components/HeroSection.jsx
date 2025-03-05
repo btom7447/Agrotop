@@ -1,10 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import StatsCount from "./StatsCount";
+import heroPosterOne from "../images/hero-poster-one.png";
+import heroPosterTwo from "../images/hero-poster-two.png";
 import HeroFilter from "./HeroFilter";
-
-const heroPosterOne = require("../images/hero-poster-one.png");
-const heroPosterTwo = require("../images/hero-poster-two.png");
 
 const HeroSection = () => {
     return (
