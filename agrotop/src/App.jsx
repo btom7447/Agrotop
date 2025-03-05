@@ -14,6 +14,7 @@ import Signin from "./pages/Signup";
 import ResetPassword from "./pages/ResetPassword";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import EmailVerification from "./pages/EmailVerification";
 
 
 
@@ -33,6 +34,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signin />} />
             <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/email-verification" element={<EmailVerification />} />
             <Route path="/property-details/:id" element={<PropertyDetail />} />
           </Routes>
           <Footer />

@@ -50,7 +50,7 @@ const Signup = () => {
                 autoClose: 3000,
             });
 
-            setTimeout(() => navigate("/login"), 3000);
+            setTimeout(() => navigate("/email-verification"), 3000);
         } catch (error) {
             toast.error(error.message, {
                 position: "top-right",
@@ -140,7 +140,7 @@ const Signup = () => {
                             onClick={() => setPasswordVisible(!passwordVisible)}
                         />
                     </div>
-
+                    <br />
                     <div className="login-links">
                         <p>By registering, you accept our</p>
                         <Link to="/terms-of-use">Terms of Use</Link>

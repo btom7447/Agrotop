@@ -316,6 +316,16 @@ footer .bottom-footer li {
   background-color: var(--white);
   overflow-y: scroll;
 }
+.login-page .login-form-container.verification {
+  padding: 50px;
+  padding-left: 100px;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: scroll;
+}
 .login-page .login-form-container h3 {
   font-family: 'Instrument Sans', sans-serif;
   font-weight: 600;
@@ -386,8 +396,9 @@ footer .bottom-footer li {
   justify-content: space-between;
   align-items: center;
   font-size: 14px;
+  font-family: 'Instrument Sans', sans-serif;
   margin-bottom: 30px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .login-page .remember-me input {
   width: 15px;
@@ -442,7 +453,7 @@ footer .bottom-footer li {
   color: var(--white);
 }
 .login-page .login-links {
-  margin-top: 20px;
+  /* margin-top: 5px; */
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -453,14 +464,12 @@ footer .bottom-footer li {
   letter-spacing: 0%;
   color: var(--s-black);
 }
-.login-page .login-links p {
-  margin: 0px 10px;
-}
 .login-page .login-links a {
   color: var(--p-gold);
   text-decoration: none;
   font-weight: 600;
   font-size: 16px;
+  margin: 0px 2px;
 }
 
 /* LOGIN POSTER */
@@ -515,7 +524,10 @@ footer .bottom-footer li {
   height: 100%;
   object-fit: cover;
 }
-
+.breadcrumb-section a {
+  text-decoration: none;
+  color: inherit;
+}
 .breadcrumb-section h6 {
   color: var(--white);
   font-family: 'Instrument Sans', sans-serif;
@@ -986,6 +998,7 @@ footer .bottom-footer li {
 .property-card .property-card-link {
   text-decoration: none;
   color: inherit;
+  z-index: 1;
 }
 .property-card .property-card-poster {
   height: 300px;
@@ -1010,7 +1023,7 @@ footer .bottom-footer li {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1;
+  z-index: 10;
 }
 .property-card .save-button .save-icon {
   font-size: 25px;
@@ -1435,6 +1448,34 @@ footer .bottom-footer li {
   color: var(--ash);
 }
 
+/* NO PROPERTY FOUND */
+.no-property {
+  padding: 20px;
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.no-property h6 {
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 36px;
+  letter-spacing: 0%;
+  color: var(--p-black);
+  text-align: center;
+}
+.no-property img {
+  justify-self: center;
+  align-self: center;
+  width: auto;
+  height: 120px;
+  object-fit: cover;
+}
+
 /* PROPERTY DETAILS PAGE */
 .property-detail-page {
   padding: 50px;
@@ -1592,6 +1633,14 @@ footer .bottom-footer li {
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
+}
+.property-detail-page .stat > div p {
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21.96px;
+  letter-spacing: 0%;
+  color: var(--s-black);
 }
 .property-detail-page .about-land {
   margin-top: 30px;

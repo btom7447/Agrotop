@@ -4,6 +4,9 @@ import BreadCrumb from "../assets/components/BreadCrumb";
 import ListingsFilter from "../assets/components/ListingsFilter";
 import ListingCatalog from "../assets/components/ListingCatalog";
 import { BounceLoader } from "react-spinners"; // Import BounceLoader
+import NoProperty from "../assets/components/NoProperty";
+
+const baseURL = import.meta.env.VITE_API_BASE_URL;
 
 const Listings = () => {
     const location = useLocation();
@@ -25,7 +28,7 @@ const Listings = () => {
     useEffect(() => {
         const fetchListings = async () => {
             try {
-                const response = await fetch("https://api.drixel.ng/api/listing");
+                const response = await fetch(`${baseURL}/listing`);
                 if (!response.ok) {
                     throw new Error("Failed to fetch listings");
                 }
@@ -113,20 +116,7 @@ const Listings = () => {
 
                     {/* Display no-property fallback if no listings are found */}
                     {filteredListings.length === 0 ? (
-                        <div
-                            className="no-products"
-                            style={{
-                                width: "100%",
-                                height: "30dvh",
-                                textAlign: "center",
-                                fontSize: "1.5rem",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                            }}
-                        >
-                            <p>No properties found</p> {/* Fallback for no properties */}
-                        </div>
+                        <NoProperty />
                     ) : (
                         <ListingCatalog listingsData={filteredListings} />
                     )}

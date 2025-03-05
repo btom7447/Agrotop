@@ -45,7 +45,7 @@ const Footer = () => {
                         <h6>Follow us</h6>
                         <ul>
                             <li>
-                                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                                <a href="https://www.instagram.com/agrotop_homes" target="_blank" rel="noopener noreferrer">
                                     <img src={instagramIcon} alt="Instagram Icon" />
                                 </a>
                             </li>

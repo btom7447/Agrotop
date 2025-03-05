@@ -24,7 +24,12 @@ const ResetPassword = () => {
                     <br />
                     <br />
                     <button type="submit" className="login-btn">Send Password reset link</button>
-                    <button type="button" className="cancel-btn">Cancel</button>
+                    
+                    <Link to="/login">
+                        <button type="button" className="cancel-btn">
+                                Cancel
+                        </button>
+                    </Link>
                 </form>
             </div>
 

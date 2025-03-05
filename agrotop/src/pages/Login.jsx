@@ -51,7 +51,7 @@ const Login = () => {
                 draggable: true,
             });
             // Redirect the user to a protected route (e.g., dashboard)
-            navigate("/dashboard");
+            navigate("/email-verification");
         } catch (err) {
             setError(err.message); 
             toast.error(err.message, {
@@ -127,8 +127,8 @@ const Login = () => {
 
                     {/* Sign Up Link */}
                     <div className="login-links">
-                        <p>Don't have an account? Sign Up</p>
-                        <Link to="/signup">Here</Link>
+                        <p>Don't have an account? Sign Up </p>
+                        <Link to="/signup"> Here</Link>
                     </div>
                 </form>
             </div>

@@ -9,6 +9,8 @@ import RequestTourForm from "../assets/components/RequestTourForm";
 import CallActionSection from "../assets/components/CallActionSection";
 import { BounceLoader } from "react-spinners"; // For loading state
 
+const baseURL = import.meta.env.VITE_API_BASE_URL;
+
 const PropertyDetail = () => {
     const { id } = useParams(); // Get the property ID from the URL
     const navigate = useNavigate();
@@ -89,7 +91,7 @@ const PropertyDetail = () => {
         const fetchProperty = async () => {
             try {
                 // Fetch property details from the API
-                const response = await fetch(`https://api.drixel.ng/api/listing/${id}`);
+                const response = await fetch(`${baseURL}/listing/${id}`);
                 if (!response.ok) {
                     throw new Error("Failed to fetch property details");
                 }
@@ -196,24 +198,15 @@ const PropertyDetail = () => {
                             </div>
                             <div className="stat">
                                 <h6>Total Area</h6>
-                                <div>
-                                    <img src={statVector} alt="size vector icon" />
-                                    <p>{property.size} sqm</p>
-                                </div>
+                                <p>{property.size} sqm</p>
                             </div>
                             <div className="stat">
                                 <h6>Market Status</h6>
-                                <div>
-                                    <img src={statVector} alt="size vector icon" />
-                                    <p style={{ textTransform: "capitalize" }}>For {property.market_status}</p>
-                                </div>
+                                <p style={{ textTransform: "capitalize" }}>For {property.market_status}</p>
                             </div>
                             <div className="stat">
                                 <h6>Listing Date</h6>
-                                <div>
-                                    <img src={statVector} alt="size vector icon" />
-                                    <p>{formatListingDate(property.listing_date)}</p>
-                                </div>
+                                <p>{formatListingDate(property.listing_date)}</p>
                             </div>
                         </div>
                         <div className="about-land">
@@ -227,10 +220,6 @@ const PropertyDetail = () => {
                                     <img src="" alt={property.property_owner} />
                                     <h6>{property.property_owner}</h6>
                                 </div>
-
-                                <button type="button" className="more-info">
-                                    More info
-                                </button>
                             </div>
                         </div>
                     </div>

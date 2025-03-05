@@ -47,43 +47,43 @@ const PropertyCard = ({ data }) => {
     return (
         <div className="property-card">
             <div className="property-card-poster">
-                {/* Property Image */}
-                <img src={data.images && data.images.length > 0 ? getImageUrl(data.images[0]) : "https://via.placeholder.com/300"} alt={data.name || "Property Image"} />
-
-                {/* Save Button */}
-                <button type="button" className="save-button" onClick={handleSaveClick}>
-                    <IonIcon icon={isSaved ? heart : heartOutline} className="save-icon" />
-                </button>
-
-                {/* Market Status Tag */}
-                <div className={`${data.market_status.toLowerCase()} type-tag`}>
-                    <p>For {data.market_status.toLowerCase()}</p>
-                </div>
-
-                {/* Size and Price */}
-                <div className="size">
-                    <img src={sizeVector} alt="size icon" />
-                    <p>{formatNumber(data.size)} sqft</p>
-                    <h4>NGN {formatNumber(data.price)}</h4> 
-                </div>
-            </div>
-
-            {/* Property Caption */}
-            <Link 
-                to={{
-                    pathname: `/property-details/${data.id}`,
-                    state: { property: data }
-                }} 
-                className="property-card-link"
-            >                
-                <div className="property-caption">
-                    <h5>{data.name || "Unnamed Property"}</h5> {/* Handle missing name */}
-                    <div className="location">
-                        <img src={locationVector} alt="location placeholder icon" />
-                        <h6>{data.address || "Address not available"}</h6> {/* Handle missing address */}
+                <Link 
+                    to={{
+                        pathname: `/property-details/${data.id}`,
+                        state: { property: data }
+                    }} 
+                    className="property-card-link"
+                > 
+                    <img src={data.images && data.images.length > 0 ? getImageUrl(data.images[0]) : "https://via.placeholder.com/300"} alt={data.name || "Property Image"} />
+                </Link>
+                    <button type="button" className="save-button" onClick={handleSaveClick}>
+                        <IonIcon icon={isSaved ? heart : heartOutline} className="save-icon" />
+                    </button>
+                    <div className={`${data.market_status.toLowerCase()} type-tag`}>
+                        <p>For {data.market_status.toLowerCase()}</p>
+                    </div>
+                    <div className="size">
+                        <img src={sizeVector} alt="size icon" />
+                        <p>{formatNumber(data.size)} sqft</p>
+                        <h4>NGN {formatNumber(data.price)}</h4> 
                     </div>
                 </div>
-            </Link>
+
+                <div className="property-caption">
+                    <Link 
+                        to={{
+                            pathname: `/property-details/${data.id}`,
+                            state: { property: data }
+                        }} 
+                        className="property-card-link"
+                    > 
+                        <h5>{data.name || "Unnamed Property"}</h5> {/* Handle missing name */}
+                        <div className="location">
+                            <img src={locationVector} alt="location placeholder icon" />
+                            <h6>{data.address || "Address not available"}</h6> {/* Handle missing address */}
+                        </div>
+                    </Link>
+                </div>
         </div>
     );
 };
