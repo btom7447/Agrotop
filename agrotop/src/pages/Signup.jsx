@@ -66,7 +66,7 @@ const Signup = () => {
             <div className="login-form-container">
                 <h3>Create an Account</h3>
                 <form className="login-form" onSubmit={handleSubmit}>
-                    {/* Email Input */}
+                    {/* Name Input */}
                     <div className="input-group">
                         <label>Name</label>
                         <input

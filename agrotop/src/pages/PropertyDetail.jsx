@@ -4,7 +4,6 @@ import BreadCrumb from "../assets/components/BreadCrumb";
 import { IonIcon } from "@ionic/react";
 import { chevronBack, heart, heartOutline, shareSocial } from "ionicons/icons";
 import PropertyThumbnail from "../assets/components/PropertyThumbnail";
-import statVector from "../assets/images/stat-vector.png";
 import RequestTourForm from "../assets/components/RequestTourForm";
 import CallActionSection from "../assets/components/CallActionSection";
 import { BounceLoader } from "react-spinners"; // For loading state
@@ -15,11 +14,11 @@ const PropertyDetail = () => {
     const { id } = useParams(); // Get the property ID from the URL
     const navigate = useNavigate();
     const location = useLocation();
-    const passedProperty = location.state?.property; // Get the passed property from state
+    const passedProperty = location.state?.property; 
     const [property, setProperty] = useState(passedProperty || null);
-    const [loading, setLoading] = useState(!passedProperty); // Add a loading state
-    const [error, setError] = useState(null); // Add an error state
-    const [isSaved, setIsSaved] = useState(false); // Track if the property is saved
+    const [loading, setLoading] = useState(!passedProperty); 
+    const [error, setError] = useState(null);
+    const [isSaved, setIsSaved] = useState(false); 
 
     // Initialize isSaved state based on localStorage
     useEffect(() => {

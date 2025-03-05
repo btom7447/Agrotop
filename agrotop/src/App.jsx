@@ -11,10 +11,11 @@ import Login from "./pages/Login";
 import PropertyDetail from "./pages/PropertyDetail";
 import ScrollToTop from "./assets/components/ScrollToTop";
 import Signin from "./pages/Signup";
-import ResetPassword from "./pages/ResetPassword";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import EmailVerification from "./pages/EmailVerification";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 
 
@@ -33,7 +34,8 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signin />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/reset-password/:email/:token" element={<ResetPassword />} />
             <Route path="/email-verification" element={<EmailVerification />} />
             <Route path="/property-details/:id" element={<PropertyDetail />} />
           </Routes>
