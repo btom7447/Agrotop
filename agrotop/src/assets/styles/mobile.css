@@ -389,7 +389,83 @@
     .request-tour-form {
         gap: 30px;
     }
+
+    /* ABOUT US PAGE */
+    .about-us-page .overview-section {
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+    }
+    .about-us-page .overview-poster {
+        flex: 1;
+        display: flex;
+        justify-content: end;
+    }
+    .about-us-page .overview-poster img {
+        width: 100%;
+    }
     
+    /* DOWNLOAD BROCHURE */
+    .download-brochure {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .download-brochure .download-btn {
+        margin-left: 0px;
+    }
+    
+    /* ABOUT STATISTICS */
+    .about-us-page .about-statistics {
+        padding: 50px 20px;
+        gap: 30px;
+    }
+    .about-us-page .statistics-grid {
+        gap: 0px;
+        grid-template-columns: 1fr 1fr;
+    }
+    .about-us-page .stat span {
+        font-size: 38px;
+    }
+    .about-us-page .statistics-grid .stats:last-child {
+        border-left: none;
+    }
+    .about-us-page .statistics-grid .stats:nth-child(1) {
+        border-right: none;
+    }
+    .about-us-page .statistics-grid .stats {
+        padding: 20px;
+        border: none !important;
+    }
+
+    /* EXPLORE COMPANY  */
+    .explore-company {
+        padding: 50px 20px;
+        gap: 50px;
+    }
+    .explore-company .statement-container {
+        flex-direction: column;
+    }
+    
+
+    /* STRATEGY SECTION */
+    .strategy-section {
+        padding: 50px 20px;
+        flex-direction: column;
+        gap: 50px;
+    }
+    
+    /* CONTACT PAGE */
+    .contact-us-page {
+        padding: 50px 20px;
+        grid-template-columns: 1fr;
+    } 
+
+
     /* * {
         outline: red solid 1px;
     } */

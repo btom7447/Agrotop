@@ -16,6 +16,8 @@ import "react-toastify/dist/ReactToastify.css";
 import EmailVerification from "./pages/EmailVerification";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
+import ProtectedRoute from "./assets/components/ProtectedRoute";
+import UserDashboard from "./pages/UserDashboard";
 
 
 
@@ -38,6 +40,11 @@ const App = () => {
             <Route path="/reset-password/:email/:token" element={<ResetPassword />} />
             <Route path="/email-verification" element={<EmailVerification />} />
             <Route path="/property-details/:id" element={<PropertyDetail />} />
+
+            {/* Protected Routes (Dashboard) */}
+            <Route element={<ProtectedRoute />}>
+              <Route path="/user-dashboard" element={<UserDashboard />} />
+            </Route>
           </Routes>
           <Footer />
           <ToastContainer

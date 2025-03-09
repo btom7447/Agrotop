@@ -77,11 +77,11 @@ const PropertyCard = ({ data }) => {
                         }} 
                         className="property-card-link"
                     > 
-                        <h5>{data.name || "Unnamed Property"}</h5> {/* Handle missing name */}
-                        <div className="location">
-                            <img src={locationVector} alt="location placeholder icon" />
-                            <h6>{data.address || "Address not available"}</h6> {/* Handle missing address */}
-                        </div>
+                    <h5>{data.name || "Unnamed Property"}</h5> {/* Handle missing name */}
+                    <div className="location">
+                        <img src={locationVector} alt="location placeholder icon" />
+                        <h6>{data.address || "Address not available"}</h6> {/* Handle missing address */}
+                    </div>
                     </Link>
                 </div>
         </div>

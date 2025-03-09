@@ -3,6 +3,7 @@ import logo from '../images/logo.png';
 import instagramIcon from '../images/instagram-icon.png';
 import twitterIcon from '../images/twitter-icon.png';
 import facebookIcon from '../images/facebook-icon.png';
+import whatsAppIcon from '../images/whatsapp-icon.png';
 import mastercardIcon from '../images/mastercard-icon.png';
 import visaIcon from '../images/visa-icon.png';
 import { NavLink } from "react-router-dom";
@@ -23,11 +24,9 @@ const Footer = () => {
                     <ul>
                         <li>
                             <NavLink to="/listings">
-                                Listings
+                                Listed Properties
                             </NavLink>
                         </li>
-                        <li>Lease</li>
-                        <li>Invest</li>
                         <li>
                             <NavLink to="/about">
                                 About
@@ -55,8 +54,13 @@ const Footer = () => {
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.facebook.com" target="_blank" rel="noopener no  referrer">
+                                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
                                     <img src={facebookIcon} alt="Facebook icon" style={{ width: '30px'}} />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://wa.me/c/2349013264015" target="_blank" rel="noopener noreferrer">
+                                    <img src={whatsAppIcon} alt="WhatsApp icon" style={{ width: '30px'}} />
                                 </a>
                             </li>
                         </ul>
