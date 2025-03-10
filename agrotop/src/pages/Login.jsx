@@ -36,12 +36,14 @@ const Login = () => {
             const data = await response.json();
 
             // Save the token securely and logged in flag
-             if (rememberMe) {
+            if (rememberMe) {
                 localStorage.setItem("token", data.token);
-                sessionStorage.setItem("isLoggedIn", "true"); 
+                localStorage.setItem("isLoggedIn", "true");
+                localStorage.setItem("userData", JSON.stringify(data.user)); 
             } else {
                 sessionStorage.setItem("token", data.token);
-                sessionStorage.setItem("isLoggedIn", "true"); 
+                sessionStorage.setItem("isLoggedIn", "true");
+                sessionStorage.setItem("userData", JSON.stringify(data.user));
             }
 
             toast.success("Login successful!", {

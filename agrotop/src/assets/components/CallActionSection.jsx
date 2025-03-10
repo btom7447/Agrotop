@@ -1,5 +1,5 @@
 import React from "react";
-import callActionPoster from '../images/call-action-poster-1.jpg';
+import { Link } from "react-router-dom";
 
 const CallActionSection = () => {
     return (
@@ -13,9 +13,11 @@ const CallActionSection = () => {
             </div>
             <div className="action-caption">
                 <h3>Are you looking to sell or lease your landed property? We can help.</h3>
-                <button type="button" className="call-action-button">
-                    Sell/Lease your Land
-                </button>
+                <Link to="/user-dashboard">
+                    <button type="button" className="call-action-button">
+                        Sell/Lease your Land
+                    </button>
+                </Link>
             </div>
         </div>
     )

@@ -16,8 +16,10 @@ import "react-toastify/dist/ReactToastify.css";
 import EmailVerification from "./pages/EmailVerification";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
+import MainLayout from "./assets/components/MainLayout";
 import ProtectedRoute from "./assets/components/ProtectedRoute";
 import UserDashboard from "./pages/UserDashboard";
+import DashboardLayout from "./assets/components/DashboardLayout";
 
 
 
@@ -27,26 +29,33 @@ const App = () => {
       <IonApp>
         <Router>
           <ScrollToTop />
-          <Header />
+          {/* <Header /> */}
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path='/home' element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/listings" element={<Listings />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signin />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/reset-password/:email/:token" element={<ResetPassword />} />
-            <Route path="/email-verification" element={<EmailVerification />} />
-            <Route path="/property-details/:id" element={<PropertyDetail />} />
+            <Route element={<MainLayout />}>
+              <Route path='/' element={<Home />} />
+              <Route path='/home' element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/listings" element={<Listings />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signin />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/reset-password/:email/:token" element={<ResetPassword />} />
+              <Route path="/email-verification" element={<EmailVerification />} />
+              <Route path="/property-details/:id" element={<PropertyDetail />} />
+            </Route>
 
             {/* Protected Routes (Dashboard) */}
-            <Route element={<ProtectedRoute />}>
+            <Route
+              element={
+                <DashboardLayout>
+                  <ProtectedRoute />
+                </DashboardLayout>
+              }
+            >
               <Route path="/user-dashboard" element={<UserDashboard />} />
             </Route>
           </Routes>
-          <Footer />
           <ToastContainer
             position="top-right"
             autoClose={3000}

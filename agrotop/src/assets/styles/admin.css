@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  transition: all 0.3s ease;
+}
+
+/* ROOT COLORS */
+:root {
+    --p-black: #423E3EF2;
+    --s-black: #423E3E; 
+    --ash: #8D8D8D;
+    --gray: #D9D9D9;
+    --a-background: #F7F7FD;
+    --white: #fff;
+    --p-gold: #E1841A;
+    --s-gold: #E1841A59;
+    --p-green: #154604;
+}
+
+/* .dashboard-header-desktop {
+    display: none;
+} */
+
+/* DASHBOARD SIDEBAR */
+.dashboard-sidebar {
+    width: 250px;
+    height: 100dvh;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--white);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    overflow-y: scroll;
+}
+.dashboard-sidebar img {
+    width: 150px;
+    height: auto;
+    object-fit: cover;
+}
+.dashboard-sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.dashboard-sidebar nav li {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+.dashboard-sidebar nav li a, 
+.dashboard-sidebar .logout-btn {
+    padding: 10px 15px;
+    text-decoration: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: solid 1px var(--p-gold);
+    color: var(--p-gold);
+    background-color: var(--white);
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+.dashboard-sidebar nav li a:hover, 
+.dashboard-sidebar .logout-btn:hover {
+    color: var(--white);
+    background-color: var(--p-gold);
+}
+.dashboard-sidebar nav li a .nav-icons {
+    font-size: 18px;
+}
+
+/* DASHBOARD PAGES */
+.dashboard-pages {
+    position: relative;
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
+/* USER DASHBOARD HEADER */
+.dashboard-header-desktop {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--white);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+/* NOTIFICATION ICON */
+.notification-bar {
+    position: relative;
+    padding: 10px;
+}
+.notification-bar img {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+}
+.notification-count {
+    position: absolute;
+    top: 0;
+    right: -5px;
+    padding: 5px 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    background-color: var(--p-green);
+    border-radius: 50%;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 100%;
+}
+
+/* EARNING BALANCE */
+.dashboard-header .earning-balance {
+    display: flex;
+    gap: 20px;
+}
+.dashboard-header .earning-balance h4 {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--p-black);
+}
+.dashboard-header .earning-balance span {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 120%;
+}
+.dashboard-header .earning-balance span.earnings {
+    color: var(--p-green);
+}
+.dashboard-header .earning-balance span.balance {
+    color: #EF3232;
+}
+.dashboard-header .user-profile {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.dashboard-header .user-profile img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.dashboard-header .user-profile h6 {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--p-black);
+    text-transform: capitalize;
+}
+
+
+/* * {
+    outline: red solid 1px;
+} */
