@@ -4,10 +4,7 @@ import { NavLink } from "react-router-dom";
 import { IonIcon } from "@ionic/react";
 import { appsOutline, mailOutline, swapHorizontalOutline, homeOutline, personOutline, logOutOutline } from "ionicons/icons";
 
-
-
-const DashboardSidebar = () => {
-
+const DashboardSidebar = ({ className }) => {
     const handleLogout = () => {
         localStorage.removeItem("isLoggedIn");
         localStorage.removeItem("userData");
@@ -15,11 +12,11 @@ const DashboardSidebar = () => {
         sessionStorage.removeItem("isLoggedIn");
         sessionStorage.removeItem("userData");
         sessionStorage.removeItem("token");
-        window.location.reload(); 
+        window.location.reload();
     };
 
     return (
-        <div className="dashboard-sidebar">
+        <div className={`dashboard-sidebar ${className}`}>
             <nav>
                 <NavLink to="/">
                     <img src={logo} alt="agrotop logo" />
@@ -59,12 +56,12 @@ const DashboardSidebar = () => {
                 </ul>
             </nav>
 
-            <button type="button" className="logout-btn" onClick={() => handleLogout()}> 
-                <IonIcon icon={logOutOutline} nav-icons />
+            <button type="button" className="logout-btn" onClick={() => handleLogout()}>
+                <IonIcon icon={logOutOutline} className="nav-icons" />
                 Logout
             </button>
         </div>
-    )
+    );
 };
 
 export default DashboardSidebar;

@@ -20,6 +20,7 @@ import MainLayout from "./assets/components/MainLayout";
 import ProtectedRoute from "./assets/components/ProtectedRoute";
 import UserDashboard from "./pages/UserDashboard";
 import DashboardLayout from "./assets/components/DashboardLayout";
+import UserAccount from "./pages/UserAccount";
 
 
 
@@ -29,7 +30,6 @@ const App = () => {
       <IonApp>
         <Router>
           <ScrollToTop />
-          {/* <Header /> */}
           <Routes>
             <Route element={<MainLayout />}>
               <Route path='/' element={<Home />} />
@@ -54,8 +54,10 @@ const App = () => {
               }
             >
               <Route path="/user-dashboard" element={<UserDashboard />} />
+              <Route path="/user-account" element={<UserAccount />} />
             </Route>
           </Routes>
+          <Footer />
           <ToastContainer
             position="top-right"
             autoClose={3000}

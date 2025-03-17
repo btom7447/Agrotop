@@ -13,7 +13,7 @@
         --p-green: #154604;
     }    
 
-    #root {
+    .main-layout {
         padding-top: 60px;
     }
 

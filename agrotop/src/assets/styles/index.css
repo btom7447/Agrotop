@@ -547,7 +547,7 @@ footer .bottom-footer li {
   z-index: 2;
 }
 
-#root {
+.main-layout {
   padding-top: 85px;
 }
 .page {

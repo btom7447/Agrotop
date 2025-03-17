@@ -21,16 +21,27 @@
     --p-green: #154604;
 }
 
-/* .dashboard-header-desktop {
-    display: none;
-} */
+/* DASHBOARD PAGES */
+.dashboard-pages {
+    position: relative;
+    width: 100%;
+    height: 100dvh;
+    overflow-y: scroll;
+}
+.dashboard-pages .dashboard-content {
+    margin-top: -85dvh;
+    width: calc(100% - 250px);
+    margin-left: 250px;
+    overflow-y: scroll;
+    padding: 20px;
+}
 
 /* DASHBOARD SIDEBAR */
 .dashboard-sidebar {
     width: 250px;
     height: 100dvh;
     padding: 20px;
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     background-color: var(--white);
@@ -83,19 +94,20 @@
 .dashboard-sidebar nav li a .nav-icons {
     font-size: 18px;
 }
-
-/* DASHBOARD PAGES */
-.dashboard-pages {
-    position: relative;
-    margin-left: 250px;
-    width: calc(100% - 250px);
+.dashboard-sidebar nav li a.active {
+    background-color: var(--p-gold);
+    color: var(--white);
 }
+
 /* USER DASHBOARD HEADER */
+.dashboard-header-mobile {
+    display: none;
+}
 .dashboard-header-desktop {
     margin-left: 250px;
     width: calc(100% - 250px);
     padding: 20px;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     background-color: var(--white);
@@ -177,6 +189,12 @@
     line-height: 120%;
     color: var(--p-black);
     text-transform: capitalize;
+}
+
+/* USER DASHBOARD PAGE */
+.user-dashboard-page {
+    height: 200dvh;
+    background-color: rgba(255, 0, 0, 0.439);
 }
 
 

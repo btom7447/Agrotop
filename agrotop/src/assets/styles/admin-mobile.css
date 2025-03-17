@@ -13,6 +13,19 @@
         --p-green: #154604;
     }    
 
+    /* DASHBOARD PAGES */
+    .dashboard-pages {
+        position: relative;
+        width: 100%;
+        height: 100dvh;
+        overflow-y: scroll;
+    }
+    .dashboard-pages .dashboard-content {
+        margin-top: -85dvh;
+        width: 100%;
+        margin-left: 0px;
+    }
+
     /* DASHBOARD SIDEBAR */
     .dashboard-sidebar {
         width: 250px;
@@ -20,7 +33,7 @@
         padding: 20px;
         position: fixed;
         top: 0;
-        left: 0;
+        right: -250px; /* Start off-screen */
         background-color: var(--white);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         z-index: 2000;
@@ -29,150 +42,70 @@
         justify-content: space-between;
         align-items: stretch;
         overflow-y: scroll;
+        transition: right 0.3s ease; /* Smooth slide animation */
+    }
+    
+    .dashboard-sidebar.open {
+        right: 0; /* Slide into view */
+    }
+    
+    /* Overlay for sidebar */
+    .dashboard-sidebar-overlay {
         display: none;
-    }
-    .dashboard-sidebar img {
-        width: 150px;
-        height: auto;
-        object-fit: cover;
-    }
-    .dashboard-sidebar nav {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-    }
-    .dashboard-sidebar nav li {
-        list-style-type: none;
-        margin-bottom: 10px;
-    }
-    .dashboard-sidebar nav li a, 
-    .dashboard-sidebar .logout-btn {
-        padding: 10px 15px;
-        text-decoration: none;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 8px;
-        cursor: pointer;
-        border-radius: 5px;
-        border: solid 1px var(--p-gold);
-        color: var(--p-gold);
-        background-color: var(--white);
-        font-family: 'Instrument Sans', sans-serif;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 120%;
-        letter-spacing: 0%;
-    }
-    .dashboard-sidebar nav li a:hover, 
-    .dashboard-sidebar .logout-btn:hover {
-        color: var(--white);
-        background-color: var(--p-gold);
-    }
-    .dashboard-sidebar nav li a .nav-icons {
-        font-size: 18px;
-    }
-
-    /* DASHBOARD PAGES */
-    .dashboard-pages {
-        position: relative;
-        margin-left: 0px;
-        width: 100%;
-        margin-top: 30px;
-    }
-    /* USER DASHBOARD HEADER */
-    .dashboard-header-desktop {
-        margin-left: 0px;
-        width: 100%;
-        padding: 10px;
         position: fixed;
         top: 0;
         left: 0;
-        background-color: var(--white);
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1500;
+    }
+    
+    .dashboard-sidebar.open + .dashboard-sidebar-overlay {
+        display: block; /* Show overlay when sidebar is open */
+    }
+    
+    /* Mobile Header */
+    .dashboard-header-mobile {
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        gap: 30px;
-        
-    }
-
-    /* NOTIFICATION ICON */
-    .notification-bar {
-        position: relative;
         padding: 10px;
-    }
-    .notification-bar img {
-        width: 20px;
-        height: 20px;
-        object-fit: cover;
-    }
-    .notification-count {
-        position: absolute;
+        background-color: var(--white);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        position: fixed;
         top: 0;
-        right: -5px;
-        padding: 5px 7px;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+    
+    .dashboard-header-mobile .user-profile {
         display: flex;
-        justify-content: center;
         align-items: center;
-        color: var(--white);
-        background-color: var(--p-green);
+        gap: 10px;
+    }
+    
+    .dashboard-header-mobile .user-profile img {
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
-        font-family: 'Instrument Sans', sans-serif;
-        font-weight: 500;
-        font-size: 10px;
-        line-height: 100%;
-    }
-
-    /* EARNING BALANCE */
-    .dashboard-header .earning-balance {
-        display: flex;
-        gap: 20px;
-    }
-    .dashboard-header .earning-balance h4 {
-        font-family: 'Instrument Sans', sans-serif;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 120%;
-        color: var(--p-black);
-    }
-    .dashboard-header .earning-balance span {
-        font-family: 'Instrument Sans', sans-serif;
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 120%;
-    }
-    .dashboard-header .earning-balance span.earnings {
-        color: var(--p-green);
-    }
-    .dashboard-header .earning-balance span.balance {
-        color: #EF3232;
-    }
-    .dashboard-header .user-profile {
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        align-items: center;
-    }
-    .dashboard-header .user-profile img {
-        width: 50px;
-        height: 50px;
         object-fit: cover;
-        border-radius: 50%;
     }
-    .dashboard-header .user-profile h6 {
+    
+    .dashboard-header-mobile .user-profile h6 {
         font-family: 'Instrument Sans', sans-serif;
         font-weight: 500;
         font-size: 16px;
-        line-height: 120%;
         color: var(--p-black);
-        text-transform: capitalize;
     }
-
-
-    * {
-        outline: red solid 1px;
+    
+    .dashboard-header-mobile .sidebar-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
+        color: var(--p-black);
     }
 
 

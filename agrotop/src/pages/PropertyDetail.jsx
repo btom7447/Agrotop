@@ -61,7 +61,7 @@ const PropertyDetail = () => {
     
         // Get the day, month, and year
         const day = date.getDate();
-        const month = date.toLocaleString('default', { month: 'long' }); // Full month name
+        const month = date.toLocaleString('default', { month: 'long' }); 
         const year = date.getFullYear();
     
         // Add the ordinal suffix to the day
@@ -70,9 +70,8 @@ const PropertyDetail = () => {
         return `${day}${ordinalSuffix} ${month}, ${year}`;
     };
 
-    // Helper function to get the ordinal suffix (e.g., st, nd, rd, th)
     const getOrdinalSuffix = (day) => {
-        if (day > 3 && day < 21) return 'th'; // 11th, 12th, 13th, etc.
+        if (day > 3 && day < 21) return 'th'; 
         switch (day % 10) {
             case 1:
                 return 'st';
@@ -101,17 +100,16 @@ const PropertyDetail = () => {
                     throw new Error("Invalid property data");
                 }
 
-                // Map the API's `state` key to `location` in the property data
                 const mappedProperty = {
                     ...result.data,
-                    location: result.data.state, // Map `state` to `location`
+                    location: result.data.state,
                 };
 
-                setProperty(mappedProperty); // Set the fetched property data
+                setProperty(mappedProperty); 
             } catch (err) {
-                setError(err.message); // Set error if something goes wrong
+                setError(err.message); 
             } finally {
-                setLoading(false); // Set loading to false after fetching
+                setLoading(false); 
             }
         };
 

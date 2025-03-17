@@ -15,7 +15,7 @@ const ContactForm = () => {
         e.preventDefault(); 
 
         try {
-            const response = await fetch(`${baseURL}/contact`, {
+            const response = await fetch(`${baseURL}/messages`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -40,7 +40,7 @@ const DesktopHeader = ({ logo }) => {
             <div className={headerButtonsClass}>
                 {isLoggedIn ? (
                     <div className='account-notification'>
-                        <Link to='/account'>My Account</Link>
+                        <Link to='/user-account'>My Account</Link>
                         <div className="notification-bar">
                             <img src={notificationIcon} alt="Notification vector icon" />
                             <span className="notification-count">3</span>

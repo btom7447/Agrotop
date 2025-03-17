@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { IonIcon } from '@ionic/react'; 
 import { menu, close, } from 'ionicons/icons'; 
+import notificationIcon from '../images/notification-icon.png';
+
 
 const MobileHeader = ({ logo }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -9,6 +11,12 @@ const MobileHeader = ({ logo }) => {
     const handleToggle = () => {
         setIsOpen(!isOpen);
     };
+
+    // Check if the user is logged in
+    const isLoggedIn = localStorage.getItem("isLoggedIn") || sessionStorage.getItem("isLoggedIn");
+
+    // Set header-buttons to display none if logged in
+    const headerButtonsClass = isLoggedIn ? 'header-buttons hidden' : 'header-buttons';
 
     return (
         <nav className="mobile-navbar">
@@ -29,13 +37,25 @@ const MobileHeader = ({ logo }) => {
                     <li><NavLink to="/contact" activeclassname="active" onClick={() => setIsOpen(false)}>Contact</NavLink></li>
                 </ul>
 
-                <div className="header-buttons">
-                    <Link to="/login" onClick={() => setIsOpen(false)}>
-                        <button type="button" className="login">Log in</button>
-                    </Link>
-                    <Link to="/signup" onClick={() => setIsOpen(false)}>
-                        <button type="button" className="sign-up">Sign up</button>
-                    </Link>
+                <div className={headerButtonsClass}>
+                    {isLoggedIn ? (
+                        <div className='account-notification'>
+                            <Link to='/user-account'>My Account</Link>
+                            <div className="notification-bar">
+                                <img src={notificationIcon} alt="Notification vector icon" />
+                                <span className="notification-count">3</span>
+                            </div>
+                        </div>
+                    ) : (
+                        <>
+                            <Link to="/login">
+                                <button type="button" className="login">Log in</button>
+                            </Link>
+                            <Link to="/signup">
+                                <button type="button" className="sign-up">Sign up</button>
+                            </Link>
+                        </>
+                    )}
                 </div>
             </div>
         </nav>
