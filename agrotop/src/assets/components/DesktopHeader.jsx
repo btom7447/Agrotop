@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import notificationIcon from '../images/notification-icon.png';
+import Notification from './Notification';
 
 
 const DesktopHeader = ({ logo }) => {
@@ -41,10 +41,7 @@ const DesktopHeader = ({ logo }) => {
                 {isLoggedIn ? (
                     <div className='account-notification'>
                         <Link to='/user-account'>My Account</Link>
-                        <div className="notification-bar">
-                            <img src={notificationIcon} alt="Notification vector icon" />
-                            <span className="notification-count">3</span>
-                        </div>
+                        <Notification />
                     </div>
                 ) : (
                     <>

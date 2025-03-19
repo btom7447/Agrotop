@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { IonIcon } from '@ionic/react'; 
 import { menu, close, } from 'ionicons/icons'; 
 import notificationIcon from '../images/notification-icon.png';
+import Notification from './Notification';
 
 
 const MobileHeader = ({ logo }) => {
@@ -41,10 +42,7 @@ const MobileHeader = ({ logo }) => {
                     {isLoggedIn ? (
                         <div className='account-notification'>
                             <Link to='/user-account'>My Account</Link>
-                            <div className="notification-bar">
-                                <img src={notificationIcon} alt="Notification vector icon" />
-                                <span className="notification-count">3</span>
-                            </div>
+                            <Notification />
                         </div>
                     ) : (
                         <>

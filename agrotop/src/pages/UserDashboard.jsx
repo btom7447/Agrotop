@@ -1,9 +1,10 @@
 import React from "react";
+import UserDashboardStats from "../assets/components/UserDashboardStats";
 
 const UserDashboard = () => {
     return (
         <div className="user-dashboard-page">
-            <h1>User Dashboard</h1>
+            <UserDashboardStats />
         </div>
     )
 };

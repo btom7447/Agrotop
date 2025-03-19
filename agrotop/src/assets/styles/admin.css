@@ -150,7 +150,7 @@
 /* NOTIFICATION MODAL */
 .notification-modal {
     position: fixed;
-    top: 85px;
+    top: 95px;
     right: 5px;
     width: 400px;
     background-color: var(--white);
@@ -236,7 +236,39 @@
 
 /* USER DASHBOARD PAGE */
 .user-dashboard-page {
-    height: 300px;
+    height: fit-content;
+}
+
+/* USER DASHBOARD STATS */
+.user-dashboard-page .user-dashboard-statistics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+.user-dashboard-statistics .user-dashboard-stats {
+    padding: 20px;
+    border-radius: 5px;
+    background-color: var(--white);
+    border: solid 1px var(--p-gold);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+}
+.user-dashboard-statistics .user-dashboard-stats h3 {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 120%;
+    color: var(--p-gold);
+}
+.user-dashboard-statistics .user-dashboard-stats h5 {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--p-gold);
 }
 
 
