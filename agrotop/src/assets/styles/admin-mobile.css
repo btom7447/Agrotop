@@ -21,9 +21,10 @@
         overflow-y: scroll;
     }
     .dashboard-pages .dashboard-content {
-        margin-top: -85dvh;
+        margin-top: 70px;
         width: 100%;
         margin-left: 0px;
+        padding: 10px;
     }
 
     /* DASHBOARD SIDEBAR */
@@ -64,27 +65,38 @@
         width: 100%;
         z-index: 1000;
     }
-    
     .dashboard-header-mobile .user-profile {
         display: flex;
         align-items: center;
         gap: 10px;
     }
-    
     .dashboard-header-mobile .user-profile img {
         width: 40px;
         height: 40px;
         border-radius: 50%;
         object-fit: cover;
     }
-    
+    .dashboard-header-mobile .notification-bar {
+        margin-right: 10px;
+    }
+    .dashboard-header-mobile .notification-bar img {
+        width: 25px;
+        height: 25px;
+    }
+    /* NOTIFICATION MODAL */
+    .notification-modal {
+        position: fixed;
+        top: 70px;
+        right: 5px;
+        min-width: 200px;
+        max-width: 300px;
+    }
     .dashboard-header-mobile .user-profile h6 {
         font-family: 'Instrument Sans', sans-serif;
         font-weight: 500;
         font-size: 16px;
         color: var(--p-black);
     }
-    
     .dashboard-header-mobile .sidebar-toggle {
         background: none;
         border: none;

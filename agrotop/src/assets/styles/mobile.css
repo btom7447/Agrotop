@@ -140,6 +140,7 @@
         padding: 20px;
         padding-left: 20px;
         background-color: var(--white);
+        margin-bottom: 50px;
     }
     
     /* LOGIN POSTER */
@@ -150,6 +151,7 @@
         background-color: var(--white);
         position: relative;
         overflow-y: hidden;
+        display: none;
     }
     .login-poster .login-poster-banner {
         position: absolute;

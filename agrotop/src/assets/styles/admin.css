@@ -123,11 +123,13 @@
 .notification-bar {
     position: relative;
     padding: 10px;
+    cursor: pointer;
 }
 .notification-bar img {
     width: 20px;
     height: 20px;
     object-fit: cover;
+    cursor: pointer;
 }
 .notification-count {
     position: absolute;
@@ -144,6 +146,47 @@
     font-weight: 500;
     font-size: 10px;
     line-height: 100%;
+}
+/* NOTIFICATION MODAL */
+.notification-modal {
+    position: fixed;
+    top: 85px;
+    right: 5px;
+    width: 400px;
+    background-color: var(--white);
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+.dialog-overlay {
+    background: transparent; 
+}
+.notification-modal .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: 30px;
+    color: var(--p-black);
+}
+.notification-modal .close-button:hover {
+    color: var(--ash);
+}
+.notification-modal .modal-title {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 120%;
+    color: var(--p-black);
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+.notification-modal li {
+    list-style-type: none;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 /* EARNING BALANCE */
@@ -193,8 +236,7 @@
 
 /* USER DASHBOARD PAGE */
 .user-dashboard-page {
-    height: 200dvh;
-    background-color: rgba(255, 0, 0, 0.439);
+    height: 300px;
 }
 
 

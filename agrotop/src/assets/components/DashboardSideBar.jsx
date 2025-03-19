@@ -43,7 +43,7 @@ const DashboardSidebar = ({ isSidebarOpen, toggleSidebar }) => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/user-transaction" activeclassname="active" onClick={handleNavLinkClick}>
+                        <NavLink to="/user-transactions" activeclassname="active" onClick={handleNavLinkClick}>
                             <IonIcon icon={swapHorizontalOutline} className="nav-icons" />
                             Transactions
                         </NavLink>

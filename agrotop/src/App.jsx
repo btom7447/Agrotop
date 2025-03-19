@@ -21,6 +21,9 @@ import ProtectedRoute from "./assets/components/ProtectedRoute";
 import UserDashboard from "./pages/UserDashboard";
 import DashboardLayout from "./assets/components/DashboardLayout";
 import UserAccount from "./pages/UserAccount";
+import UserInbox from "./pages/UserInbox";
+import UserTransactions from "./pages/UserTransactions";
+import UserListings from "./pages/UserListings";
 
 
 
@@ -54,6 +57,9 @@ const App = () => {
               }
             >
               <Route path="/user-dashboard" element={<UserDashboard />} />
+              <Route path="/user-inbox" element={<UserInbox />} />
+              <Route path="/user-transactions" element={<UserTransactions />} />
+              <Route path="/user-listings" element={<UserListings />} />
               <Route path="/user-account" element={<UserAccount />} />
             </Route>
           </Routes>
