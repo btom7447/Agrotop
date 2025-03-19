@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { IonIcon } from "@ionic/react";
 import { appsOutline, mailOutline, swapHorizontalOutline, homeOutline, personOutline, logOutOutline } from "ionicons/icons";
 
-const DashboardSidebar = ({ className }) => {
+const DashboardSidebar = ({ isSidebarOpen, toggleSidebar }) => {
     const handleLogout = () => {
         localStorage.removeItem("isLoggedIn");
         localStorage.removeItem("userData");
@@ -15,8 +15,15 @@ const DashboardSidebar = ({ className }) => {
         window.location.reload();
     };
 
+    // Function to handle NavLink clicks
+    const handleNavLinkClick = () => {
+        if (isSidebarOpen) {
+            toggleSidebar(); 
+        }
+    };
+
     return (
-        <div className={`dashboard-sidebar ${className}`}>
+        <div className={`dashboard-sidebar ${isSidebarOpen ? "open" : ""}`}>
             <nav>
                 <NavLink to="/">
                     <img src={logo} alt="agrotop logo" />
@@ -24,31 +31,31 @@ const DashboardSidebar = ({ className }) => {
 
                 <ul className="sidebar-links">
                     <li>
-                        <NavLink to="/user-dashboard" end activeclassname="active">
+                        <NavLink to="/user-dashboard" end activeclassname="active" onClick={handleNavLinkClick}>
                             <IonIcon icon={appsOutline} className="nav-icons" />
                             Dashboard
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/user-inbox" activeclassname="active">
+                        <NavLink to="/user-inbox" activeclassname="active" onClick={handleNavLinkClick}>
                             <IonIcon icon={mailOutline} className="nav-icons" />
                             Inbox
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/user-transaction" activeclassname="active">
+                        <NavLink to="/user-transaction" activeclassname="active" onClick={handleNavLinkClick}>
                             <IonIcon icon={swapHorizontalOutline} className="nav-icons" />
                             Transactions
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/user-listings" activeclassname="active">
+                        <NavLink to="/user-listings" activeclassname="active" onClick={handleNavLinkClick}>
                             <IonIcon icon={homeOutline} className="nav-icons" />
                             Manage Listings
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/user-account" activeclassname="active">
+                        <NavLink to="/user-account" activeclassname="active" onClick={handleNavLinkClick}>
                             <IonIcon icon={personOutline} className="nav-icons" />
                             Account Settings
                         </NavLink>

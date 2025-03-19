@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 import DashboardHeaderDesktop from "./DashboardHeaderDesktop";
 import DashboardHeaderMobile from "./DashboardHeaderMobile";
 
-const DashboardHeader = () => {
+const DashboardHeader = ({ toggleSidebar, isSidebarOpen }) => {
     // Check if the user is logged in
     const isLoggedIn = localStorage.getItem("isLoggedIn") || sessionStorage.getItem("isLoggedIn");
 
@@ -25,7 +25,11 @@ const DashboardHeader = () => {
     return (
         <div className="dashboard-header">
             <DashboardHeaderDesktop userData={userData} />
-            <DashboardHeaderMobile userData={userData} />
+            <DashboardHeaderMobile 
+                userData={userData} 
+                toggleSidebar={toggleSidebar} 
+                isSidebarOpen={isSidebarOpen}
+            />
         </div>
     );
 };

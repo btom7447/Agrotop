@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import DashboardHeader from "./DashboardHeader";
 import DashboardSidebar from "./DashboardSideBar";
-import DashboardHeaderMobile from "./DashboardHeaderMobile";
-import Footer from "./Footer";
 
 const DashboardLayout = ({ children }) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -14,9 +12,11 @@ const DashboardLayout = ({ children }) => {
     return (
         <>
             <div className="dashboard-pages">
-                <DashboardSidebar className={isSidebarOpen ? "open" : ""} />
-                <DashboardHeaderMobile
-                    userData={JSON.parse(localStorage.getItem("userData") || sessionStorage.getItem("userData"))}
+                <DashboardSidebar 
+                    isSidebarOpen={isSidebarOpen} 
+                    toggleSidebar={toggleSidebar}
+                />
+                <DashboardHeader 
                     toggleSidebar={toggleSidebar}
                     isSidebarOpen={isSidebarOpen}
                 />
