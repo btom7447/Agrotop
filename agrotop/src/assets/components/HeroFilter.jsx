@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import stateAndCities from '../data/states-and-cities.json';
 
 const HeroFilter = () => {
-    const [marketStatus, setMarketStatus] = useState(null); // Changed from landType to marketStatus
+    const [marketStatus, setMarketStatus] = useState(null); 
     const [location, setLocation] = useState(null);
 
     const navigate = useNavigate();

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from '../images/logo.png';
 import { NavLink } from "react-router-dom";
 import { IonIcon } from "@ionic/react";
-import { appsOutline, mailOutline, swapHorizontalOutline, homeOutline, personOutline, logOutOutline } from "ionicons/icons";
+import { appsOutline, mailOutline, swapHorizontalOutline, homeOutline, personOutline, logOutOutline, radioButtonOffOutline, chevronDownOutline, chevronUpOutline, radioButtonOnOutline } from "ionicons/icons";
 
 const DashboardSidebar = ({ isSidebarOpen, toggleSidebar }) => {
+    const [isListingsOpen, setIsListingsOpen] = useState(false);
+
     const handleLogout = () => {
         localStorage.removeItem("isLoggedIn");
         localStorage.removeItem("userData");
@@ -20,6 +22,10 @@ const DashboardSidebar = ({ isSidebarOpen, toggleSidebar }) => {
         if (isSidebarOpen) {
             toggleSidebar(); 
         }
+    };
+
+    const toggleListingsAccordion = () => {
+        setIsListingsOpen(!isListingsOpen);
     };
 
     return (
@@ -48,11 +54,51 @@ const DashboardSidebar = ({ isSidebarOpen, toggleSidebar }) => {
                             Transactions
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink to="/user-listings" activeclassname="active" onClick={handleNavLinkClick}>
-                            <IonIcon icon={homeOutline} className="nav-icons" />
-                            Manage Listings
-                        </NavLink>
+                    <li className="accordion-item">
+                        <div className="accordion-header" onClick={toggleListingsAccordion}>
+                            <div className="accordion-title">
+                                <IonIcon icon={homeOutline} className="nav-icons" />
+                                Manage Listings
+                            </div>
+                            <IonIcon 
+                                icon={isListingsOpen ? chevronUpOutline : chevronDownOutline} 
+                                className="accordion-icon" 
+                            />
+                        </div>
+                        {isListingsOpen && (
+                            <ul className="accordion-content">
+                                <li>
+                                    <NavLink 
+                                        to="/create-listings" 
+                                        activeclassname="active" 
+                                        onClick={handleNavLinkClick}
+                                    >
+                                        <IonIcon icon={radioButtonOffOutline} className="nav-icons" />
+                                        Create Listings
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink 
+                                        to="/user-favorites" 
+                                        activeclassname="active" 
+                                        onClick={handleNavLinkClick}
+                                    >
+                                        <IonIcon icon={radioButtonOffOutline} className="nav-icons" />
+                                        My Favorites
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink 
+                                        to="/user-listings" 
+                                        activeclassname="active" 
+                                        onClick={handleNavLinkClick}
+                                    >
+                                        <IonIcon icon={radioButtonOffOutline} className="nav-icons" />
+                                        My Properties
+                                    </NavLink>
+                                </li>
+                            </ul>
+                        )}
                     </li>
                     <li>
                         <NavLink to="/user-account" activeclassname="active" onClick={handleNavLinkClick}>

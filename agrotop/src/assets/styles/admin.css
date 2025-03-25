@@ -84,7 +84,6 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 120%;
-    letter-spacing: 0%;
 }
 .dashboard-sidebar nav li a:hover, 
 .dashboard-sidebar .logout-btn:hover {
@@ -97,6 +96,52 @@
 .dashboard-sidebar nav li a.active {
     background-color: var(--p-gold);
     color: var(--white);
+}
+/* SIDE BAR ACCORDION */
+.dashboard-sidebar .accordion-item {
+    display: flex;
+    flex-direction: column;
+}
+.dashboard-sidebar .accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: solid 1px var(--p-gold);
+    color: var(--p-gold);
+    background-color: var(--white);
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+}
+.dashboard-sidebar .accordion-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.dashboard-sidebar .accordion-icon {
+    transition: transform 0.3s ease;
+}
+.dashboard-sidebar .accordion-content {
+    padding-top: 15px;
+    padding-left: 20px;
+    list-style: none;
+}
+.dashboard-sidebar .accordion-content li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 15px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 120%;
+}
+.dashboard-sidebar .accordion-content .nav-icons {
+    width: 10px;
 }
 
 /* USER DASHBOARD HEADER */
@@ -271,6 +316,429 @@
     color: var(--p-gold);
 }
 
+/* CREATE LISTING PAGE */
+.create-listings-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white);
+    padding-bottom: 50px;
+}
+.create-listings-page h2 {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 120%;
+    color: var(--p-gold);
+}
+.create-listings-page .create-listings-form {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+.create-listings-page .create-listings-form h4 {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--p-gold);
+    margin-bottom: 20px;
+}
+.create-listings-page .create-listings-form p {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 150%;
+    color: var(--s-black);
+    margin-bottom: 20px;
+}
+.create-listings-page .create-listings-form .form-buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-self: center;
+    align-self: center;
+    margin-top: 30px;
+}
+.create-listings-page .create-listings-form .form-buttons button {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.create-listings-page .create-listings-form .form-buttons .cancel-btn {
+    border: solid 1px var(--p-gold);
+    background-color: var(--white);
+    color: var(--p-gold);
+}
+.create-listings-page .create-listings-form .form-buttons .cancel-btn:hover {
+    background-color: var(--p-gold);
+    color: var(--white);
+}
+.create-listings-page .create-listings-form .form-buttons .publish-btn {
+    border: solid 1px var(--p-gold);
+    background-color: var(--p-gold);
+    color: var(--white);
+}
+.create-listings-page .create-listings-form .form-buttons .publish-btn:hover {
+    background-color: var(--white);
+    color: var(--p-gold);
+}
+.create-listings-page .create-listings-form .save-info {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    padding: 10px 15px;
+    cursor: pointer;
+    color: var(--white);
+    background-color: var(--p-gold);
+    border: solid 1px var(--p-gold);
+    border-radius: 4px;
+}
+.create-listings-page .create-listings-form .save-info:hover {
+    color: var(--p-gold);
+    background-color: var(--white);
+}
+.create-listings-form label {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: start;
+    align-items: stretch;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 120%;
+}
+.create-listings-form label input {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    border-radius: 4px;
+    border: solid 1px var(--gray);
+    padding: 10px;
+}
+.create-listings-form label textarea {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    border-radius: 4px;
+    border: solid 1px var(--gray);
+    padding: 10px;
+    min-height: 100px;
+}
+.create-listings-form .col-form-inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: stretch;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+.create-listings-form .row-form-inputs {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-content: start;
+    align-items: stretch;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+.create-listings-form .media-info-section {
+    margin-top: 30px;
+}
+
+/* MEDIA INFO SECTION */
+.create-listings-form .media-info-section {
+    width: 100%;
+}
+.create-listings-form .media-input {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    justify-self: flex-start;
+    align-items: flex-start;
+}
+.create-listings-form .dropzone {
+    width: 100%;
+    height: 200px;
+    border: 2px dashed var(--p-gold);
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.create-listings-form .dropzone input {
+    display: none;
+}
+.create-listings-form .image-preview {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap; 
+    gap: 10px;
+    overflow-x: auto; 
+    overflow-y: hidden;
+    transition: height 0.3s ease;
+}
+.create-listings-form .image-preview.empty {
+    height: 0; 
+    overflow: hidden;
+}
+.create-listings-form .image-preview::-webkit-scrollbar {
+    height: 5px; 
+}
+.create-listings-form .image-preview::-webkit-scrollbar-thumb {
+    background-color: var(--ash); 
+}
+.create-listings-form .image-preview .image-container {
+    width: 250px;
+    height: 170px;
+    position: relative;
+    flex-shrink: 0; 
+}
+.create-listings-form .image-preview .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+}
+.create-listings-form .image-preview .image-container .delete-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    background-color: red;
+    border: none;
+    font-size: 15px;
+    color: var(--white);
+    cursor: pointer;
+    z-index: 10;
+}
+.create-listings-form .image-preview .image-container .delete-button:hover {
+    background-color: rgba(255, 0, 0, 0.8); 
+}
+
+/* USER FAVORITE LISTINGS PAGE */
+.user-favorite-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white);
+    padding-bottom: 50px;
+}
+.user-favorite-page h2 {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 120%;
+    color: var(--p-gold);
+}
+.user-favorite-page .favorites-container {
+    width: 100%;
+}
+.favorites-container .favorites-table {
+    margin-top: 30px;
+    width: 100%;
+    border-collapse: collapse;
+    overflow-x: scroll;
+}
+.favorites-container .favorites-table::-webkit-scrollbar {
+    height: 2px !important; 
+}
+.favorites-container .favorites-table th {
+    border-bottom: solid 1px var(--gray);
+    border-top: solid 1px var(--gray);
+    padding: 20px;
+    text-align: left;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+}
+.favorites-container .favorites-table td {
+    min-width: 150px;
+    padding: 20px;
+    text-align: left;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+}
+.favorites-container .favorites-table .property-cell {
+    min-width: 500px;
+}
+.favorites-container .favorites-table tbody tr:nth-child(odd) {
+    background-color: var(--a-background);
+}
+.favorites-container .delete-button {
+    background-color: transparent;
+    color: red;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+.favorites-container .modal-content {
+    position: fixed !important;
+    top: 30%;
+    left: 40%;
+    transform: translate(-30%, -30%);
+    background: var(--white);
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000; 
+    width: 90%;  
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.favorites-container .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 9999; 
+}
+.favorites-container .modal-title {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    text-align: center;
+    margin: 10px 0;
+}
+.favorites-container .modal-description {
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    color: var(--p-black);
+}
+.favorites-container .modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.favorites-container .modal-buttons button {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: none;
+}
+.favorites-container .modal-buttons .confirm-button {
+    background-color: var(--p-gold);
+    color: var(--white);
+}
+.favorites-container .modal-buttons .cancel-button {
+    background-color: red;
+    color: var(--white);
+}
+
+/* FAVORITE CARD */
+.favorite-card {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    color: var(--s-black);
+}
+.favorite-card .favorite-card-image {
+    width: 150px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+.favorite-card h5 {
+    font-family: "Instrument Sans", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+    color: var(--p-black);
+}
+.favorite-card .location {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.favorite-card h6 {
+    margin: 5px 0;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+    color: var(--s-black);
+    text-wrap: wrap;
+}
+
+/* NO PROPERTY FOUND */
+.empty-placeholder {
+    margin-top: 30px;
+    padding: 20px;
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .empty-placeholder h6 {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 36px;
+    color: var(--p-black);
+    text-align: center;
+  }
+  .empty-placeholder p {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--s-black);
+    text-align: center;
+  }
+  .empty-placeholder img {
+    justify-self: center;
+    align-self: center;
+    width: auto;
+    height: 150px;
+    object-fit: cover;
+  }
 
 /* * {
     outline: red solid 1px;

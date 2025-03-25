@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { IonApp } from "@ionic/react";
-import Header from "./assets/components/Header";
 import Footer from "./assets/components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -24,6 +23,8 @@ import UserAccount from "./pages/UserAccount";
 import UserInbox from "./pages/UserInbox";
 import UserTransactions from "./pages/UserTransactions";
 import UserListings from "./pages/UserListings";
+import UserCreateListings from "./pages/UserCreateListings";
+import UserFavoriteListings from "./pages/UserFavoriteListings";
 
 
 
@@ -60,6 +61,8 @@ const App = () => {
               <Route path="/user-inbox" element={<UserInbox />} />
               <Route path="/user-transactions" element={<UserTransactions />} />
               <Route path="/user-listings" element={<UserListings />} />
+              <Route path="/create-listings" element={<UserCreateListings />} />
+              <Route path="/user-favorites" element={<UserFavoriteListings />} />
               <Route path="/user-account" element={<UserAccount />} />
             </Route>
           </Routes>

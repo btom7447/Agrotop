@@ -105,6 +105,14 @@
         color: var(--p-black);
     }
 
+    /* FAVORITE PAGE */
+    .favorites-container .modal-content {
+        top: 40%;
+        left: 10%;
+        transform: translate(-30%, -30%);
+        width: 80%;  
+    }
+
 
 }
     

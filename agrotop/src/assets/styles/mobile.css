@@ -285,10 +285,20 @@
         width: 100%;
     }
     
+    /* LISTINGS PAGE FILTER */
+    .listings-filter {
+        padding: 50px 20px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    /* LISTINGS PAGE CATAGLOG */
+    .listing-catalog {
+        padding: 50px 20px;
+    }
     /* PROPERTIES CATALOG */
     .properties-grid {
         grid-template-columns: 1fr; 
         margin-bottom: 30px;
+        justify-items: center;
     }
     .pagination {
         display: flex;
@@ -340,6 +350,10 @@
     }
 
     /* PROPERTY CARD */
+    .property-card {
+        /* max-width: 470px; */
+        background-color: transparent;
+    } 
     .property-card .size p {
         font-size: 14px;
     }
