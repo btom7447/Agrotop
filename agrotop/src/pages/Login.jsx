@@ -16,7 +16,6 @@ const Login = () => {
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
-    
     const handleSubmit = async (e) => {
         e.preventDefault(); 
 
@@ -54,8 +53,16 @@ const Login = () => {
                 pauseOnHover: true,
                 draggable: true,
             });
-            // Redirect the user to a protected route (e.g., dashboard)
-            navigate("/email-verification");
+
+            // Check if user is verified
+            const isVerified = data.user.verified === true || data.user.verified === 'true';
+            
+            // Redirect based on verification status
+            if (isVerified) {
+                navigate("/");  // Redirect to home if verified
+            } else {
+                navigate("/email-verification", { state: { email: data.user.email } });
+            }
         } catch (err) {
             setError(err.message); 
             toast.error(err.message, {

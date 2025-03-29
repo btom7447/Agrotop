@@ -1,27 +1,21 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { IonIcon } from "@ionic/react";
 import { trashBinSharp } from "ionicons/icons";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import mediaUploadPlaceholder from '../images/media-upload-placeholder.png';
 
-const MediaInfoSection = ({ onSaveMedia }) => {
-    const [images, setImages] = useState([]);
-    const fileInputRef = useRef(null); // Reference to the file input
+const MediaInfoSection = ({ images, setImages, onSaveMedia }) => {
+    const fileInputRef = useRef(null);
 
     const handleFiles = (files) => {
-        const fileArray = Array.from(files).map(file => {
-            const reader = new FileReader();
-            return new Promise((resolve) => {
-                reader.onloadend = () => resolve(reader.result);
-                reader.readAsDataURL(file);
-            });
-        });
-
-        Promise.all(fileArray).then(results => {
-            setImages(prevImages => [...prevImages, ...results]);
-        });
-    };
+        const fileArray = Array.from(files).map((file) => ({
+            file,
+            preview: URL.createObjectURL(file), // Used for preview
+        }));
+    
+        setImages((prevImages) => [...prevImages, ...fileArray]);
+    };    
 
     const handleDrop = (event) => {
         event.preventDefault();
@@ -33,21 +27,28 @@ const MediaInfoSection = ({ onSaveMedia }) => {
     };
 
     const handleClick = () => {
-        fileInputRef.current.click(); 
+        fileInputRef.current.click();
     };
 
     const handleDelete = (index) => {
+        URL.revokeObjectURL(images[index].preview);
         setImages(prevImages => prevImages.filter((_, i) => i !== index));
     };
 
     const handleSave = () => {
+        onSaveMedia(images);
         if (images.length > 0) {
-            onSaveMedia(images);
             toast.success("Media Saved!", { position: "top-right", autoClose: 3000 });
         } else {
-            toast.error("No media selected!", { position: "top-right", autoClose: 3000 });
+            toast.warning("No media selected - continuing without images", { position: "top-right", autoClose: 3000 });
         }
     };
+
+    React.useEffect(() => {
+        return () => {
+            images.forEach(image => URL.revokeObjectURL(image.preview));
+        };
+    }, [images]);
 
     return (
         <div className='media-info-section'>
@@ -58,9 +59,9 @@ const MediaInfoSection = ({ onSaveMedia }) => {
 
             <div className="media-input">
                 <div className={`image-preview ${images.length === 0 ? 'empty' : ''}`}>
-                    {images.map((src, index) => (
+                    {images.map((image, index) => (
                         <div key={index} className="image-container">
-                            <img src={src} alt={`Uploaded Preview ${index}`} />
+                            <img src={image.preview} alt={`Uploaded Preview ${index}`} />
                             <button onClick={() => handleDelete(index)} className="delete-button">
                                 <IonIcon icon={trashBinSharp} size='20' />
                             </button>
@@ -71,7 +72,7 @@ const MediaInfoSection = ({ onSaveMedia }) => {
                     className="dropzone" 
                     onDrop={handleDrop} 
                     onDragOver={(e) => e.preventDefault()}
-                    onClick={handleClick} // Trigger file input on click
+                    onClick={handleClick}
                 >
                     <img src={mediaUploadPlaceholder} alt="upload icon" />
                     <p>Drag and drop images here, or Upload images</p>

@@ -599,6 +599,14 @@
     cursor: pointer;
     font-size: 24px;
 }
+.favorites-container .edit-button {
+    background-color: transparent;
+    color: var(--p-gold);
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    margin-right: 10px;
+}
 .favorites-container .modal-content {
     position: fixed !important;
     top: 30%;
@@ -716,29 +724,45 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  .empty-placeholder h6 {
+}
+.empty-placeholder h6 {
     font-family: 'Instrument Sans', sans-serif;
     font-weight: 600;
     font-size: 20px;
     line-height: 36px;
     color: var(--p-black);
     text-align: center;
-  }
-  .empty-placeholder p {
+}
+.empty-placeholder p {
     font-family: 'Instrument Sans', sans-serif;
     font-weight: 400;
     font-size: 14px;
     color: var(--s-black);
     text-align: center;
-  }
-  .empty-placeholder img {
+}
+.empty-placeholder img {
     justify-self: center;
     align-self: center;
     width: auto;
     height: 150px;
     object-fit: cover;
-  }
+}
+.empty-placeholder button {
+    margin-top: 20px;
+    background-color: var(--p-gold);
+    border: solid 1px var(--p-gold);
+    color: var(--white);
+    padding: 7px 20px;
+    border-radius: 4px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
+.empty-placeholder button:hover {
+    background-color: var(--white);
+    color: var(--p-gold);
+}
+
 
 /* * {
     outline: red solid 1px;

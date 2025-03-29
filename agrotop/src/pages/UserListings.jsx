@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+import ListingsPropertiesTable from '../assets/components/ListingsPropertiesTable';
 
 const UserListings = () => {
   return (
-    <div className="user-listings-page">
-      <h1>Manage Listings</h1>
+    <div className="user-favorite-page">
+      <h2>My Properties</h2>
+      <ListingsPropertiesTable />
     </div>
   )
 }

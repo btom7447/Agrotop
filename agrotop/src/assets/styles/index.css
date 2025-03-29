@@ -371,6 +371,11 @@ footer .bottom-footer li {
 .login-page .login-form .input-group {
   margin-top: 20px;
 }
+.login-page .resend-link {
+  color: var(--p-gold);
+  cursor: pointer;
+  text-decoration: underline;
+}
 .login-page .input-group label {
   font-family: 'Instrument Sans', sans-serif;
   font-weight: 400;

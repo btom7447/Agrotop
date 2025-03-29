@@ -36,7 +36,7 @@ const BasicInfoSection = ({ formData, handleChange, handleSelectChange, onSaveIn
   };
 
   const handleSave = () => {
-    if (formData.propertyTitle && formData.propertyDescription && formData.propertyAddress) {
+    if (formData.name && formData.about && formData.address && formData.state && formData.market_status && formData.type ) {
       onSaveInfo(formData);
       toast.success("Information Saved!", { position: "top-right", autoClose: 3000 });
     } else {
@@ -52,18 +52,18 @@ const BasicInfoSection = ({ formData, handleChange, handleSelectChange, onSaveIn
         <label>Property Title
           <input 
             type="text" 
-            name="propertyTitle" 
+            name="name" 
             placeholder="Enter property title"
-            value={formData.propertyTitle}
+            value={formData.name}
             onChange={handleChange}
           />
         </label>
 
         <label>Description
           <textarea 
-            name="propertyDescription" 
+            name="about" 
             placeholder="Enter a detailed description of the property"
-            value={formData.propertyDescription}
+            value={formData.about}
             onChange={handleChange}
           ></textarea>
         </label>
@@ -71,20 +71,20 @@ const BasicInfoSection = ({ formData, handleChange, handleSelectChange, onSaveIn
 
       <div className="row-form-inputs">
         <label>Market Status
-          <Select
-            classNamePrefix="custom-select"
-            value={formData.marketStatus}
-            onChange={(selected) => handleSelectChange("marketStatus", selected)}
-            options={marketStatusOptions}
-            placeholder="Select Market Status"
-          />
+        <Select
+          classNamePrefix="custom-select"
+          value={marketStatusOptions.find(option => option.value === formData.market_status)}
+          onChange={(selected) => handleSelectChange("market_status", selected)}
+          options={marketStatusOptions}
+          placeholder="Select Market Status"
+        />
         </label>
 
         <label>Property Type
           <Select
             classNamePrefix="custom-select"
-            value={formData.propertyType}
-            onChange={(selected) => handleSelectChange("propertyType", selected)}
+            value={propertyTypeOptions.find(option => option.value === formData.type)}
+            onChange={(selected) => handleSelectChange("type", selected)}
             options={propertyTypeOptions}
             placeholder="Select Property Type"
           />
@@ -95,19 +95,19 @@ const BasicInfoSection = ({ formData, handleChange, handleSelectChange, onSaveIn
         <label>Location
           <Select
             classNamePrefix="custom-select"
-            value={formData.location}
-            onChange={(selected) => handleSelectChange("location", selected)}
+            value={locationOptions.find(option => option.value === formData.state)}
+            onChange={(selected) => handleSelectChange("state", selected)}
             options={locationOptions}
-            placeholder="Select Location"
+            placeholder="Select State"
           />
         </label>
 
         <label>Property Address
           <input 
             type="text" 
-            name="propertyAddress" 
+            name="address" 
             placeholder="Enter Property Address"
-            value={formData.propertyAddress}
+            value={formData.address}
             onChange={handleChange}
           />
         </label>
@@ -127,9 +127,9 @@ const BasicInfoSection = ({ formData, handleChange, handleSelectChange, onSaveIn
         <label>Area (sqft)
           <input 
             type="text" 
-            name="area" 
+            name="size" 
             placeholder="Enter Total Area"
-            value={formatNumberForDisplay(formData.area)} 
+            value={formatNumberForDisplay(formData.size)} 
             onChange={handleNumericChange}
           />
         </label>
