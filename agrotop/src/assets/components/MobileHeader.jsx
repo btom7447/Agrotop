@@ -41,7 +41,7 @@ const MobileHeader = ({ logo }) => {
                 <div className={headerButtonsClass}>
                     {isLoggedIn ? (
                         <div className='account-notification'>
-                            <Link to='/user-account'>My Account</Link>
+                            <Link to='/user-profile'>My Account</Link>
                             <Notification />
                         </div>
                     ) : (

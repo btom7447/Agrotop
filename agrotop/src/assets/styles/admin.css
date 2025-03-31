@@ -41,6 +41,7 @@
     width: 250px;
     height: 100dvh;
     padding: 20px;
+    padding-bottom: 50px;
     position: sticky;
     top: 0;
     left: 0;
@@ -82,7 +83,7 @@
     background-color: var(--white);
     font-family: 'Instrument Sans', sans-serif;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 120%;
 }
 .dashboard-sidebar nav li a:hover, 
@@ -91,7 +92,7 @@
     background-color: var(--p-gold);
 }
 .dashboard-sidebar nav li a .nav-icons {
-    font-size: 18px;
+    font-size: 16px;
 }
 .dashboard-sidebar nav li a.active {
     background-color: var(--p-gold);
@@ -114,7 +115,7 @@
     background-color: var(--white);
     font-family: 'Instrument Sans', sans-serif;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 120%;
 }
 .dashboard-sidebar .accordion-title {
@@ -761,6 +762,234 @@
 .empty-placeholder button:hover {
     background-color: var(--white);
     color: var(--p-gold);
+}
+
+/* USER PROFILE PAGE */
+.create-listings-page .profile-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 30px;
+    margin-top: 30px;
+}
+.profile-form > h2 {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 120%;
+    color: var(--p-gold);
+}
+.profile-form .profile-section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    gap: 50px;
+}
+.profile-form .profile-section-inputs {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px 30px;
+}
+.profile-form .profile-picture-canvas {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+.profile-form .profile-preview {
+    border-radius: 4px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+.profile-form .change-image-btn {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 120%;
+    color: var(--p-gold);
+    margin-top: 20px;
+    cursor: pointer;
+}
+.profile-form label {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 120%;
+}
+.profile-form label input {
+    width: 100%;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+    border-radius: 4px;
+    border: solid 1px var(--gray);
+    padding: 10px;
+}
+.profile-form label input:read-only {
+    color: var(--ash);
+    background-color: var(--a-background);
+    cursor: not-allowed;
+}
+.profile-form .social-media-section {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-content: center;
+}
+.profile-form .update-info-btn {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: solid 1px var(--p-gold);
+    background-color: var(--p-gold);
+    color: var(--white);
+}
+.profile-form .update-info-btn:hover {
+    background-color: var(--white);
+    color: var(--p-gold);
+}
+.profile-form .banking-form-inputs {
+    align-self: center;
+    max-width: 800px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-content: center;
+}
+.profile-form .save-btn {
+    align-self: center;
+}
+
+/* CHANGE PASSWORD PAGE */
+.profile-form .change-password-inputs {
+    max-width: 650px;
+    justify-self: center;
+    align-self: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 30px;
+}
+.profile-form .change-password-inputs input {
+    max-width: 200px;
+}
+.profile-form .change-password-inputs .current-password {
+    grid-column: span 2;
+}
+.profile-form .current-password div {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    color: var(--p-gold);
+}
+.profile-form .current-password .forgot-password-btn {
+    border: none;
+    display: flex;
+    cursor: pointer;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    color: var(--p-gold);
+    background-color: transparent;
+}
+
+/* USERDASHBOARD LISTINGS TABLE */
+.favorites-container .listings-table {
+    margin-top: 30px;
+    width: 100%;
+    border-collapse: collapse;
+    overflow-x: scroll;
+}
+.favorites-container .listings-table::-webkit-scrollbar {
+    height: 2px !important; 
+}
+.favorites-container .listings-table thead tr {
+    border: solid 1px var(--gray);
+    border-radius: 7px !important;
+}
+.favorites-container .listings-table th {
+    padding: 20px;
+    text-align: left;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+}
+.favorites-container .listings-table td {
+    min-width: 150px;
+    padding: 20px;
+    text-align: left;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    text-transform: capitalize;
+}
+.favorites-container .listings-table tbody tr:nth-child(even) {
+    background-color: var(--gray);
+}
+.favorites-container .listings-table .status {
+    width: 100%;
+    background-color: var(--white);
+    border: solid 1px var(--ash);
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    text-transform: capitalize;
+}
+.favorites-container .listings-table .status.approved {
+    color: var(--p-green);
+}
+.favorites-container .listings-table .status.pending {
+    color: var(--p-gold);
+}
+.favorites-container .pagination-container {
+    padding: 10px;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+}
+.favorites-container .pagination-container span {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 100%;
+    color: var(--s-black);
+    margin: 0px 8px;
+}
+.favorites-container .pagination-container button {
+    border: none;
+    font-size: 20px;
+    margin: 0px 5px;
+    color: var(--p-black);
+    cursor: pointer;
+}
+.favorites-container .pagination-container button:disabled {
+    color: var(--ash);
+    cursor: not-allowed;
 }
 
 

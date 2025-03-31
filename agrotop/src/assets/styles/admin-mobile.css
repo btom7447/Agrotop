@@ -113,6 +113,36 @@
         width: 80%;  
     }
 
+    /* USER PROFILE PAGE */
+    .profile-form .profile-section {
+        flex-wrap: wrap;
+    }
+    .profile-form .banking-form-inputs {
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        justify-content: center;
+        align-content: center;
+    }
+
+    /* CHANGE PASSWORD PAGE */
+    .profile-form .change-password-inputs {
+        width: 100%;
+        max-width: 100%;
+        grid-template-columns: 1fr;
+    }
+    .profile-form .change-password-inputs input {
+        max-width: 100%;
+    }
+    .profile-form .change-password-inputs .current-password {
+        grid-column: unset;
+    }
+    .profile-form .current-password div {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
 
 }
     

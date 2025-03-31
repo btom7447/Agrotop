@@ -19,12 +19,14 @@ import MainLayout from "./assets/components/MainLayout";
 import ProtectedRoute from "./assets/components/ProtectedRoute";
 import UserDashboard from "./pages/UserDashboard";
 import DashboardLayout from "./assets/components/DashboardLayout";
-import UserAccount from "./pages/UserAccount";
+import UserAccount from "./pages/UserProfile";
 import UserInbox from "./pages/UserInbox";
 import UserTransactions from "./pages/UserTransactions";
 import UserListings from "./pages/UserListings";
 import UserCreateListings from "./pages/UserCreateListings";
 import UserFavoriteListings from "./pages/UserFavoriteListings";
+import UserProfile from "./pages/UserProfile";
+import UserChangePassword from "./pages/UserChangePassword";
 
 
 
@@ -63,7 +65,8 @@ const App = () => {
               <Route path="/user-listings" element={<UserListings />} />
               <Route path="/create-listings" element={<UserCreateListings />} />
               <Route path="/user-favorites" element={<UserFavoriteListings />} />
-              <Route path="/user-account" element={<UserAccount />} />
+              <Route path="/user-profile" element={<UserProfile />} />
+              <Route path="/change-password" element={<UserChangePassword />} />
             </Route>
           </Routes>
           <Footer />

@@ -6,6 +6,8 @@ import { appsOutline, mailOutline, swapHorizontalOutline, homeOutline, personOut
 
 const DashboardSidebar = ({ isSidebarOpen, toggleSidebar }) => {
     const [isListingsOpen, setIsListingsOpen] = useState(false);
+    const [isProfileOpen, setIsProfileOpen] = useState(false);
+
 
     const handleLogout = () => {
         localStorage.removeItem("isLoggedIn");
@@ -26,6 +28,10 @@ const DashboardSidebar = ({ isSidebarOpen, toggleSidebar }) => {
 
     const toggleListingsAccordion = () => {
         setIsListingsOpen(!isListingsOpen);
+    };
+
+    const toggleProfileAccordion = () => {
+        setIsProfileOpen(!isProfileOpen);
     };
 
     return (
@@ -100,11 +106,41 @@ const DashboardSidebar = ({ isSidebarOpen, toggleSidebar }) => {
                             </ul>
                         )}
                     </li>
-                    <li>
-                        <NavLink to="/user-account" activeclassname="active" onClick={handleNavLinkClick}>
-                            <IonIcon icon={personOutline} className="nav-icons" />
-                            Account Settings
-                        </NavLink>
+                    <li className="accordion-item">
+                        <div className="accordion-header" onClick={toggleProfileAccordion}>
+                            <div className="accordion-title">
+                                <IonIcon icon={homeOutline} className="nav-icons" />
+                                Account Settings
+                            </div>
+                            <IonIcon 
+                                icon={isListingsOpen ? chevronUpOutline : chevronDownOutline} 
+                                className="accordion-icon" 
+                            />
+                        </div>
+                        {isProfileOpen && (
+                            <ul className="accordion-content">
+                                <li>
+                                    <NavLink 
+                                        to="/user-profile" 
+                                        activeclassname="active" 
+                                        onClick={handleNavLinkClick}
+                                    >
+                                        <IonIcon icon={radioButtonOffOutline} className="nav-icons" />
+                                        My Profile
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink 
+                                        to="/change-password" 
+                                        activeclassname="active" 
+                                        onClick={handleNavLinkClick}
+                                    >
+                                        <IonIcon icon={radioButtonOffOutline} className="nav-icons" />
+                                        Change Password
+                                    </NavLink>
+                                </li>
+                            </ul>
+                        )}
                     </li>
                 </ul>
             </nav>
