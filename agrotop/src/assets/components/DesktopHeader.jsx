@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Notification from './Notification';
-
+import { useAuth } from '../lib/AuthContext.jsx';
 
 const DesktopHeader = ({ logo }) => {
     const [isSticky, setIsSticky] = useState(false);
+    const { isLoggedIn } = useAuth();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -15,12 +16,7 @@ const DesktopHeader = ({ logo }) => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Check if the user is logged in
-    const isLoggedIn = localStorage.getItem("isLoggedIn") || sessionStorage.getItem("isLoggedIn");
-
-        // Set header-buttons to display none if logged in
-        const headerButtonsClass = isLoggedIn ? 'header-buttons hidden' : 'header-buttons';
-
+    const headerButtonsClass = isLoggedIn ? 'header-buttons hidden' : 'header-buttons';
 
     return (
         <nav className={`navbar ${isSticky ? 'sticky' : ''}`}>

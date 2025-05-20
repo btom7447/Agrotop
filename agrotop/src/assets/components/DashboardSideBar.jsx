@@ -3,21 +3,12 @@ import logo from '../images/logo.png';
 import { NavLink } from "react-router-dom";
 import { IonIcon } from "@ionic/react";
 import { appsOutline, mailOutline, swapHorizontalOutline, homeOutline, personOutline, logOutOutline, radioButtonOffOutline, chevronDownOutline, chevronUpOutline, radioButtonOnOutline, person } from "ionicons/icons";
+import { useAuth } from "../lib/AuthContext.jsx";
 
 const DashboardSidebar = ({ isSidebarOpen, toggleSidebar }) => {
     const [isListingsOpen, setIsListingsOpen] = useState(false);
     const [isProfileOpen, setIsProfileOpen] = useState(false);
-
-
-    const handleLogout = () => {
-        localStorage.removeItem("isLoggedIn");
-        localStorage.removeItem("userData");
-        localStorage.removeItem("token");
-        sessionStorage.removeItem("isLoggedIn");
-        sessionStorage.removeItem("userData");
-        sessionStorage.removeItem("token");
-        window.location.reload();
-    };
+    const { logout } = useAuth();
 
     // Function to handle NavLink clicks
     const handleNavLinkClick = () => {
@@ -145,7 +136,7 @@ const DashboardSidebar = ({ isSidebarOpen, toggleSidebar }) => {
                 </ul>
             </nav>
 
-            <button type="button" className="logout-btn" onClick={() => handleLogout()}>
+            <button type="button" className="logout-btn" onClick={logout}>
                 <IonIcon icon={logOutOutline} className="nav-icons" />
                 Logout
             </button>

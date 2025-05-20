@@ -4,20 +4,22 @@ import { IonIcon } from "@ionic/react";
 import { eyeOffOutline, eyeOutline } from "ionicons/icons";
 import loginPoster from "../assets/images/login-poster.jpg";
 import { toast } from "react-toastify";
+import { useAuth } from "../assets/lib/AuthContext.jsx";
 import "react-toastify/dist/ReactToastify.css";
 
 const baseURL = import.meta.env.VITE_API_BASE_URL;
 
 const Login = () => {
-    const [identifier, setIdentifier] = useState(""); 
-    const [password, setPassword] = useState(""); 
+    const [identifier, setIdentifier] = useState("");
+    const [password, setPassword] = useState("");
     const [passwordVisible, setPasswordVisible] = useState(false);
-    const [rememberMe, setRememberMe] = useState(false); 
+    const [rememberMe, setRememberMe] = useState(false);
     const [error, setError] = useState("");
     const navigate = useNavigate();
+    const { login } = useAuth();
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
 
         try {
             const response = await fetch(`${baseURL}/login`, {
@@ -25,7 +27,7 @@ const Login = () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ identifier, password }), 
+                body: JSON.stringify({ identifier, password }),
             });
 
             if (!response.ok) {
@@ -34,45 +36,20 @@ const Login = () => {
 
             const data = await response.json();
 
-            // Save the token securely and logged in flag
-            if (rememberMe) {
-                localStorage.setItem("token", data.token);
-                localStorage.setItem("isLoggedIn", "true");
-                localStorage.setItem("userData", JSON.stringify(data.user)); 
-            } else {
-                sessionStorage.setItem("token", data.token);
-                sessionStorage.setItem("isLoggedIn", "true");
-                sessionStorage.setItem("userData", JSON.stringify(data.user));
-            }
+            login(data.token, data.user, rememberMe);
+            toast.success("Login successful!", { autoClose: 3000 });
 
-            toast.success("Login successful!", {
-                position: "top-right",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-            });
+            const is_verified = data.user.is_verified === true || data.user.is_verified === "true";
 
-            // Check if user is verified
-            const is_verified = data.user.is_verified === true || data.user.is_verified === 'true';
-            
-            // Redirect based on verification status
             if (is_verified) {
-                navigate("/");  // Redirect to home if verified
-            } else {
+                navigate("/user-dashboard");
+            } 
+            else {
                 navigate("/email-verification", { state: { email: data.user.email } });
             }
         } catch (err) {
-            setError(err.message); 
-            toast.error(err.message, {
-                position: "top-right",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-            });
+            setError(err.message);
+            toast.error(err.message, { autoClose: 3000 });
         }
     };
 
@@ -83,11 +60,9 @@ const Login = () => {
                 <h4>Login Here</h4>
                 <p>Securely Login to your Account</p>
 
-                {/* Display error message if any */}
                 {error && <div className="error-message">{error}</div>}
 
                 <form className="login-form" onSubmit={handleSubmit}>
-                    {/* Email Input */}
                     <div className="input-group">
                         <label>Email or Username</label>
                         <input
@@ -99,7 +74,6 @@ const Login = () => {
                         />
                     </div>
 
-                    {/* Password Input with Eye Icon */}
                     <div className="input-group password-group">
                         <label>Password</label>
                         <input
@@ -116,7 +90,6 @@ const Login = () => {
                         />
                     </div>
 
-                    {/* Remember Me & Forgot Password */}
                     <div className="login-options">
                         <label className="remember-me">
                             <input
@@ -131,20 +104,15 @@ const Login = () => {
                         </Link>
                     </div>
 
-                    {/* Login Button */}
-                    <button type="submit" className="login-btn">
-                        Login
-                    </button>
+                    <button type="submit" className="login-btn">Login</button>
 
-                    {/* Sign Up Link */}
                     <div className="login-links">
-                        <p>Don't have an account? Sign Up </p>
+                        <p>Don't have an account? Sign Up</p>
                         <Link to="/signup"> Here</Link>
                     </div>
                 </form>
             </div>
 
-            {/* Login Poster */}
             <div className="login-poster">
                 <img src={loginPoster} alt="Login poster image" />
                 <div className="login-poster-banner"></div>

@@ -28,64 +28,66 @@ import UserFavoriteListings from "./pages/UserFavoriteListings";
 import UserProfile from "./pages/UserProfile";
 import UserChangePassword from "./pages/UserChangePassword";
 import UserUpdateListings from "./pages/UserUpdateListings";
+import { AuthProvider } from "./assets/lib/AuthContext.jsx";
 
 
 
 const App = () => {
   return (
     <>
-      <IonApp>
-        <Router>
-          <ScrollToTop />
-          <Routes>
-            <Route element={<MainLayout />}>
-              <Route path='/' element={<Home />} />
-              <Route path='/home' element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/listings" element={<Listings />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signin />} />
-              <Route path="/forgot-password" element={<ForgotPassword />} />
-              <Route path="/reset-password/:email/:token" element={<ResetPassword />} />
-              <Route path="/email-verification" element={<EmailVerification />} />
-              <Route path="/property-details/:id" element={<PropertyDetail />} />
-            </Route>
+      <AuthProvider>
+        <IonApp>
+          <Router>
+            <ScrollToTop />
+            <Routes>
+              <Route element={<MainLayout />}>
+                <Route path='/' element={<Home />} />
+                <Route path='/home' element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/listings" element={<Listings />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signin />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/reset-password/:email/:token" element={<ResetPassword />} />
+                <Route path="/email-verification" element={<EmailVerification />} />
+                <Route path="/property-details/:id" element={<PropertyDetail />} />
+              </Route>
 
-            {/* Protected Routes (Dashboard) */}
-            <Route
-              element={
-                <DashboardLayout>
-                  <ProtectedRoute />
-                </DashboardLayout>
-              }
-            >
-              <Route path="/user-dashboard" element={<UserDashboard />} />
-              <Route path="/user-inbox" element={<UserInbox />} />
-              <Route path="/user-transactions" element={<UserTransactions />} />
-              <Route path="/user-listings" element={<UserListings />} />
-              <Route path="/update-listings" element={<UserUpdateListings />} />
-              <Route path="/create-listings" element={<UserCreateListings />} />
-              <Route path="/user-favorites" element={<UserFavoriteListings />} />
-              <Route path="/user-profile" element={<UserProfile />} />
-              <Route path="/change-password" element={<UserChangePassword />} />
-            </Route>
-          </Routes>
-          <Footer />
-          <ToastContainer
-            position="top-right"
-            autoClose={3000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-          />
-        </Router>
-      </IonApp>
-
+              {/* Protected Routes (Dashboard) */}
+              <Route
+                element={
+                  <DashboardLayout>
+                    <ProtectedRoute />
+                  </DashboardLayout>
+                }
+              >
+                <Route path="/user-dashboard" element={<UserDashboard />} />
+                <Route path="/user-inbox" element={<UserInbox />} />
+                <Route path="/user-transactions" element={<UserTransactions />} />
+                <Route path="/user-listings" element={<UserListings />} />
+                <Route path="/update-listings" element={<UserUpdateListings />} />
+                <Route path="/create-listings" element={<UserCreateListings />} />
+                <Route path="/user-favorites" element={<UserFavoriteListings />} />
+                <Route path="/user-profile" element={<UserProfile />} />
+                <Route path="/change-password" element={<UserChangePassword />} />
+              </Route>
+            </Routes>
+            <Footer />
+            <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
+          </Router>
+        </IonApp>
+      </AuthProvider>
     </>
   )
 };
