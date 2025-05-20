@@ -27,6 +27,7 @@ import UserCreateListings from "./pages/UserCreateListings";
 import UserFavoriteListings from "./pages/UserFavoriteListings";
 import UserProfile from "./pages/UserProfile";
 import UserChangePassword from "./pages/UserChangePassword";
+import UserUpdateListings from "./pages/UserUpdateListings";
 
 
 
@@ -63,6 +64,7 @@ const App = () => {
               <Route path="/user-inbox" element={<UserInbox />} />
               <Route path="/user-transactions" element={<UserTransactions />} />
               <Route path="/user-listings" element={<UserListings />} />
+              <Route path="/update-listings" element={<UserUpdateListings />} />
               <Route path="/create-listings" element={<UserCreateListings />} />
               <Route path="/user-favorites" element={<UserFavoriteListings />} />
               <Route path="/user-profile" element={<UserProfile />} />

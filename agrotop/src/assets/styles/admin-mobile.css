@@ -144,5 +144,17 @@
         margin-bottom: 20px;
     }
 
+    /* TRANSACTIONS PAGE  */
+    .transactions-container .transactions-tab {
+        overflow-x: scroll;
+        gap: 20px;
+        padding-bottom: 20px;
+    }
+    .transactions-container .transactions-tab .tab-btn {
+        font-size: 13px;
+        padding: 10px 20px;
+    }
+
+
 }
     

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import NoListing from "./NoListing";
 import { BounceLoader } from "react-spinners";
 import { IonIcon } from "@ionic/react";
 import { chevronBack, chevronForward } from "ionicons/icons";
+import NoSoldLeased from "./NoSoldLeased";
 
-const DashboardListedProperty = ({ listingsData, loading, error }) => {
+const DashboardSoldLeasedProperty = ({ listingsData, loading, error }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const rowsPerPage = 10;
 
@@ -23,10 +23,13 @@ const DashboardListedProperty = ({ listingsData, loading, error }) => {
             </div>
         );
 
+    // Filter listingsData to include only those with sold_leased === 'true'
+    listingsData = listingsData.filter((property) => property.sales_status === "approved");
+
     // if (error) return <p>Error: {error}</p>;
 
     if (!listingsData || listingsData.length === 0) {
-        return <NoListing />;
+        return <NoSoldLeased />;
     }
 
     // Calculate total pages
@@ -43,35 +46,21 @@ const DashboardListedProperty = ({ listingsData, loading, error }) => {
             <table className="listings-table">
                 <thead>
                     <tr>
+                        <th>Buyer</th>
                         <th>Property Name</th>
                         <th>Location</th>
                         <th>Market Status</th>
                         <th>Price</th>
-                        <th>Listing Date</th>
-                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
                     {paginatedData.map((property) => (
                         <tr key={property.id}>
+                            <td>{property.buyer_name}</td>
                             <td>{property.name}</td>
                             <td>{property.state}</td>
                             <td>For {property.market_status}</td>
                             <td>₦ {parseInt(property.price, 10).toLocaleString()}</td>
-                            <td>{property.listing_date}</td>
-                            <td>
-                                <span
-                                    className={`status ${
-                                        property.sales_status === "pending"
-                                            ? "pending"
-                                            : property.sales_status === "approved"
-                                            ? "approved"
-                                            : ""
-                                    }`}
-                                >
-                                    {property.sales_status}
-                                </span>
-                            </td>
                         </tr>
                     ))}
                 </tbody>
@@ -105,4 +94,4 @@ const DashboardListedProperty = ({ listingsData, loading, error }) => {
     );
 };
 
-export default DashboardListedProperty;
+export default DashboardSoldLeasedProperty;

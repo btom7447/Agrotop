@@ -2,12 +2,12 @@ import React from "react";
 import { motion } from "framer-motion";
 import Odometer from "react-odometerjs";
 
-const UserDashboardStats = ({ listedProperty, onStatClick }) => {
+const UserDashboardStats = ({ listedProperty, soldLeasedProperties, totalExpenses, totalEarnings, onStatClick }) => {
     const statsData = {
-        listedProperty: listedProperty, // Dynamic value
-        soldLeased: 5, // Static
-        earnings: 250000, // Static
-        expenses: 100000, // Static
+        listedProperty: listedProperty, 
+        soldLeased: soldLeasedProperties, 
+        earnings: totalEarnings,
+        expenses: totalExpenses, 
     };
 
     const containerVariants = {
@@ -43,12 +43,12 @@ const UserDashboardStats = ({ listedProperty, onStatClick }) => {
 
             <motion.div className="user-dashboard-stats" variants={itemVariants} onClick={() => onStatClick("earnings")}>                
                 <h5>Total Earnings</h5>
-                <h3>₦ <Odometer value={statsData.earnings} format="(,ddd)" /></h3>
+                <h3>₦ <Odometer value={statsData.earnings} format="(,ddd)" style={{ marginTop: '-5px'}} /></h3>
             </motion.div>
 
             <motion.div className="user-dashboard-stats" variants={itemVariants} onClick={() => onStatClick("expenses")}>                
                 <h5>Total Expenses</h5>
-                <h3>₦ <Odometer value={statsData.expenses} format="(,ddd)" /></h3>
+                <h3>₦ <Odometer value={statsData.expenses} format="(,ddd)" style={{ marginTop: '-5px'}} /></h3>
             </motion.div>
         </motion.div>
     );

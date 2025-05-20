@@ -196,8 +196,8 @@
 /* NOTIFICATION MODAL */
 .notification-modal {
     position: fixed;
-    top: 95px;
-    right: 5px;
+    top: 90px;
+    right: 10px;
     width: 400px;
     background-color: var(--white);
     padding: 20px;
@@ -288,10 +288,13 @@
 /* USER DASHBOARD STATS */
 .user-dashboard-page .user-dashboard-statistics {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
+    overflow-x: scroll;
     gap: 30px;
+    padding-bottom: 10px;
 }
 .user-dashboard-statistics .user-dashboard-stats {
+    min-width: 200px;
     padding: 20px;
     border-radius: 5px;
     background-color: var(--white);
@@ -301,6 +304,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     gap: 20px;
+    cursor: pointer;
 }
 .user-dashboard-statistics .user-dashboard-stats h3 {
     font-family: 'Instrument Sans', sans-serif;
@@ -949,24 +953,24 @@
     background-color: var(--gray);
 }
 .favorites-container .listings-table .status {
-    width: 100%;
     background-color: var(--white);
     border: solid 1px var(--ash);
     border-radius: 4px;
-    padding: 5px 10px;
+    padding: 5px 20px;
     font-family: 'Instrument Sans', sans-serif;
     font-weight: 600;
     font-size: 14px;
     line-height: 100%;
     text-transform: capitalize;
 }
-.favorites-container .listings-table .status.approved {
+.favorites-container .listings-table .approved {
     color: var(--p-green);
 }
-.favorites-container .listings-table .status.pending {
+.favorites-container .listings-table .pending {
     color: var(--p-gold);
 }
 .favorites-container .pagination-container {
+    margin-top: 50px;
     padding: 10px;
     justify-self: end;
     display: flex;
@@ -991,6 +995,95 @@
     color: var(--ash);
     cursor: not-allowed;
 }
+
+
+/* TRANSACTIONS PAGE  */
+.transactions-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+.transactions-container .transactions-tab {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.transactions-container .transactions-tab .tab-btn {
+    font-family: "Instrument Sans", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    padding: 10px 30px;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: 0.3s ease;
+}
+.transactions-container .tab-btn.active {
+    background-color: #E1841A;
+    color: white;
+    border-color: #E1841A;
+}
+
+/* TRANSACTION LIST */
+.transactions-container .transactions-list {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 700px;
+}
+.transactions-container .transaction-card {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.transactions-container .transaction-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.transactions-container .transaction-card h5 {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--p-black);
+    text-transform: capitalize;
+}
+.transactions-container .transaction-card h5.expense {
+    color: red;
+    text-transform: capitalize;
+}
+.transactions-container .transaction-card h5.earning {
+    color: var(--p-green);
+    text-transform: capitalize;
+}
+
+.transactions-container .transaction-left h6 {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--p-black);
+    text-transform: capitalize;
+}
+.transactions-container .transaction-left p {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    color: var(--ash);
+    margin-top: 5px;
+}
+
+
 
 
 /* * {

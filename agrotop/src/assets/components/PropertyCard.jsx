@@ -38,12 +38,6 @@ const PropertyCard = ({ data }) => {
         return isNaN(number) ? "N/A" : number.toLocaleString(); 
     };    
 
-    // Construct the full image URL
-    const getImageUrl = (imagePath) => {
-        const baseUrl = "https://api.drixel.ng/"; 
-        return `${baseUrl}${imagePath}`;
-    };
-
     return (
         <div className="property-card">
             <div className="property-card-poster">
@@ -54,7 +48,7 @@ const PropertyCard = ({ data }) => {
                     }} 
                     className="property-card-link"
                 > 
-                    <img src={data.images && data.images.length > 0 ? getImageUrl(data.images[0]) : "https://via.placeholder.com/300"} alt={data.name || "Property Image"} />
+                    <img src={data.images && data.images.length > 0 ? data.images[0] : ""} alt={data.name || "Property Image"} />
                 </Link>
                     <button type="button" className="save-button" onClick={handleSaveClick}>
                         <IonIcon icon={isSaved ? heart : heartOutline} className="save-icon" />

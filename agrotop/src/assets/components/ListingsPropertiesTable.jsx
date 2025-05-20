@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription } from "@radix-ui/react-dialog";
 import { motion } from "framer-motion";
 import { IonIcon } from "@ionic/react";
@@ -18,6 +19,7 @@ const ListingsPropertiesTable = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
 
     let userData;
@@ -144,7 +146,7 @@ const ListingsPropertiesTable = () => {
                                     <button 
                                         type="button"
                                         className="edit-button"
-                                        onClick={() => console.log("Edit clicked for:", property)}
+                                        onClick={() => navigate("/update-listings", { state: { propertyId: property.id } })}
                                     >
                                         <IonIcon icon={createOutline} size="20" />
                                     </button>

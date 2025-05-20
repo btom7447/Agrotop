@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import NoListing from "./NoListing";
 import { BounceLoader } from "react-spinners";
 import { IonIcon } from "@ionic/react";
 import { chevronBack, chevronForward } from "ionicons/icons";
+import NoAmount from "./NoAmount";
 
-const DashboardListedProperty = ({ listingsData, loading, error }) => {
+const DashboardTotalEarnings = ({ earningTransactions, loading, error }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const rowsPerPage = 10;
 
@@ -25,51 +25,47 @@ const DashboardListedProperty = ({ listingsData, loading, error }) => {
 
     // if (error) return <p>Error: {error}</p>;
 
-    if (!listingsData || listingsData.length === 0) {
-        return <NoListing />;
+    if (!earningTransactions || earningTransactions.length === 0) {
+        return <NoAmount text="Income" />;
     }
 
     // Calculate total pages
-    const totalRows = listingsData.length;
+    const totalRows = earningTransactions.length;
     const totalPages = Math.ceil(totalRows / rowsPerPage);
 
     // Get data for the current page
     const startIndex = (currentPage - 1) * rowsPerPage;
     const endIndex = startIndex + rowsPerPage;
-    const paginatedData = listingsData.slice(startIndex, endIndex);
+    const paginatedData = earningTransactions.slice(startIndex, endIndex);
 
     return (
         <div className="favorites-container">
             <table className="listings-table">
                 <thead>
                     <tr>
-                        <th>Property Name</th>
-                        <th>Location</th>
-                        <th>Market Status</th>
-                        <th>Price</th>
-                        <th>Listing Date</th>
+                        <th>Transaction ID</th>
+                        <th>Date</th>
+                        <th>Amount</th>
                         <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {paginatedData.map((property) => (
-                        <tr key={property.id}>
-                            <td>{property.name}</td>
-                            <td>{property.state}</td>
-                            <td>For {property.market_status}</td>
-                            <td>₦ {parseInt(property.price, 10).toLocaleString()}</td>
-                            <td>{property.listing_date}</td>
+                    {paginatedData.map((transact) => (
+                        <tr key={transact.id}>
+                            <td>{transact.transaction_id}</td>
+                            <td>{transact.date}</td>
+                            <td>₦ {parseInt(transact.amount, 10).toLocaleString()}</td>
                             <td>
                                 <span
                                     className={`status ${
-                                        property.sales_status === "pending"
+                                        transact.status === "pending"
                                             ? "pending"
-                                            : property.sales_status === "approved"
+                                            : transact.status === "confirmed"
                                             ? "approved"
                                             : ""
                                     }`}
                                 >
-                                    {property.sales_status}
+                                    {transact.status}
                                 </span>
                             </td>
                         </tr>
@@ -105,4 +101,4 @@ const DashboardListedProperty = ({ listingsData, loading, error }) => {
     );
 };
 
-export default DashboardListedProperty;
+export default DashboardTotalEarnings;

@@ -3,6 +3,7 @@ import Splide from '@splidejs/splide';
 import '@splidejs/splide/dist/css/splide.min.css';
 
 const PropertyThumbnail = ({ property }) => {
+    console.log("Property Data", property)
     const mainSliderRef = useRef(null);
     const thumbnailSliderRef = useRef(null);
 
@@ -67,7 +68,7 @@ const PropertyThumbnail = ({ property }) => {
                     {images.map((imgSrc, index) => (
                         <li className="splide__slide" key={index}>
                             <img
-                                src={getImageUrl(imgSrc)} // Use getImageUrl to construct the full URL
+                                src={imgSrc}
                                 alt={`${property?.name || 'Property'} ${index + 1}`}
                             />
                         </li>
@@ -78,10 +79,10 @@ const PropertyThumbnail = ({ property }) => {
             <div id="thumbnail-slider" className="splide thumbnail-slide" ref={thumbnailSliderRef}>
                 <div className="splide__track">
                     <ul className="splide__list">
-                        {images.map((imgSrc, index) => (
+                        {images.filter(Boolean).map((imgSrc, index) => (
                             <li className="splide__slide" key={index}>
                                 <img
-                                    src={getImageUrl(imgSrc)} // Use getImageUrl to construct the full URL
+                                    src={imgSrc}
                                     alt={`${property?.name || 'Property'} thumbnail ${index + 1}`}
                                 />
                             </li>

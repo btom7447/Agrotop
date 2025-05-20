@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logo from '../images/logo.png';
 import { NavLink } from "react-router-dom";
 import { IonIcon } from "@ionic/react";
-import { appsOutline, mailOutline, swapHorizontalOutline, homeOutline, personOutline, logOutOutline, radioButtonOffOutline, chevronDownOutline, chevronUpOutline, radioButtonOnOutline } from "ionicons/icons";
+import { appsOutline, mailOutline, swapHorizontalOutline, homeOutline, personOutline, logOutOutline, radioButtonOffOutline, chevronDownOutline, chevronUpOutline, radioButtonOnOutline, person } from "ionicons/icons";
 
 const DashboardSidebar = ({ isSidebarOpen, toggleSidebar }) => {
     const [isListingsOpen, setIsListingsOpen] = useState(false);
@@ -109,7 +109,7 @@ const DashboardSidebar = ({ isSidebarOpen, toggleSidebar }) => {
                     <li className="accordion-item">
                         <div className="accordion-header" onClick={toggleProfileAccordion}>
                             <div className="accordion-title">
-                                <IonIcon icon={homeOutline} className="nav-icons" />
+                                <IonIcon icon={personOutline} className="nav-icons" />
                                 Account Settings
                             </div>
                             <IonIcon 

@@ -4,7 +4,8 @@ import MediaInfoSection from './MediaInfoSection';
 
 const baseURL = import.meta.env.VITE_API_BASE_URL;
 
-const CreateListingsForm = () => {
+const UpdateListingsForm = ({ listingData }) => {
+    
     let userData;
     try {
         const userDataString = sessionStorage.getItem("userData") || localStorage.getItem("userData");
@@ -15,20 +16,20 @@ const CreateListingsForm = () => {
     }
 
     const initialFormData = {
-        name: "",
-        about: "",
-        market_status: null,
-        sales_status: "pending",
-        type: null,
-        state: null,
-        featured: false,
-        address: "",
-        price: "",
-        size: "",
+        name: listingData?.name || "",
+        about: listingData?.about || "",
+        market_status: listingData?.market_status || null,
+        sales_status: listingData?.sales_status || "pending",
+        type: listingData?.type || null,
+        state: listingData?.state || null,
+        featured: listingData?.featured || false,
+        address: listingData?.address || "",
+        price: listingData?.price || "",
+        size: listingData?.size || "",
         user_id: userData?.id || "",
         property_owner: userData?.name || "",
-        listing_date: new Date().toISOString().split('T')[0],
-        images: [], 
+        listing_date: listingData?.listing_date || new Date().toISOString().split('T')[0],
+        images: listingData?.images || [],
     };
 
     const [formData, setFormData] = useState(initialFormData);
@@ -121,4 +122,4 @@ const CreateListingsForm = () => {
     );
 };
 
-export default CreateListingsForm;
+export default UpdateListingsForm;

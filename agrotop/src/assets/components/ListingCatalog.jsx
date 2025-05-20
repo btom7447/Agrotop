@@ -29,6 +29,7 @@ const ListingCatalog = ({ listingsData }) => {
         return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
     };
 
+    console.log("Listing Data", listingsData)
     // Handle pagination
     const handlePageChange = (page) => {
         setCurrentPage(page);

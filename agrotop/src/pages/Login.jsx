@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 const baseURL = import.meta.env.VITE_API_BASE_URL;
 
 const Login = () => {
-    const [email, setEmail] = useState(""); 
+    const [identifier, setIdentifier] = useState(""); 
     const [password, setPassword] = useState(""); 
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [rememberMe, setRememberMe] = useState(false); 
@@ -25,7 +25,7 @@ const Login = () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ email, password }), 
+                body: JSON.stringify({ identifier, password }), 
             });
 
             if (!response.ok) {
@@ -55,10 +55,10 @@ const Login = () => {
             });
 
             // Check if user is verified
-            const isVerified = data.user.verified === true || data.user.verified === 'true';
+            const is_verified = data.user.is_verified === true || data.user.is_verified === 'true';
             
             // Redirect based on verification status
-            if (isVerified) {
+            if (is_verified) {
                 navigate("/");  // Redirect to home if verified
             } else {
                 navigate("/email-verification", { state: { email: data.user.email } });
@@ -89,12 +89,12 @@ const Login = () => {
                 <form className="login-form" onSubmit={handleSubmit}>
                     {/* Email Input */}
                     <div className="input-group">
-                        <label>Email</label>
+                        <label>Email or Username</label>
                         <input
-                            type="email"
-                            placeholder="Enter your email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            type="text"
+                            placeholder="Enter Your Email or Username"
+                            value={identifier}
+                            onChange={(e) => setIdentifier(e.target.value)}
                             required
                         />
                     </div>
